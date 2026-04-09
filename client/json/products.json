@@ -1,0 +1,61 @@
+[
+    {
+        "id": 1,
+        "name": "Blue Plaid Suit",
+        "gender": "mens",
+        "category": "jackets",
+        "image": "../photos/menplaidsuitbg.png",
+        "images": ["../photos/menplaidsuitbg.png", "../photos/menplaidsuit2.png", "../photos/menplaidsuit3.png"],
+        "sizes": ["M", "L", "XL"],
+        "price": 200.00,
+        "description": "Elevate your character with this unique, yet modern blue suit covered in a stylish plaid pattern. "
+    },
+    {
+        "id": 2,
+        "name": "Classic Black-Tie Suit",
+        "gender": "mens",
+        "category": "jackets",
+        "image": "../photos/menclassicblacktiesuit.png",
+        "images": ["../photos/menclassicblacktiesuit.png", "../photos/menclassicblacktiesuit2.png", "../photos/menclassicblacktiesuit3.png"],
+        "sizes": ["S", "M", "L", "XL"],
+        "price": 250.00,
+        "description": "Experience a daily professional lifestyle with this timeless black suit paired with a gleaming black tie. Made from premium wool and cashmere to provide comfort for a breathable feel, and suitability for daily wear."
+    },
+
+    {
+        "id": 3,
+        "name": "Classic White Button-Down Dress Shirt",
+        "gender": "mens",
+        "category": "shirts",
+        "image": "../photos/menclassicwhitedressshirt.png",
+        "images": ["../photos/menclassicwhitedressshirt.png", "../photos/menclassicwhitedressshirt2.png", "../photos/menclassicwhitedressshirt3.png"],
+        "sizes": ["S", "M", "L", "XL"],
+        "price": 60.00,
+        "description": "Description"
+
+    },
+    {
+        "id": 4,
+        "name": "Classic Formal Black Pants",
+        "gender": "mens",
+        "category": "pants",
+        "image": "../photos/menclassicformalblackpants.png",
+        "images": ["../photos/menclassicformalblackpants.png", "../photos/menclassicformalblackpants2.png", "../photos/menclassicformalblackpants3.png"],
+        "sizes": ["S", "M", "L", "XL"],
+        "price": 80.00,
+        "description": "Description"
+
+    },
+    {
+        "id": 5,
+        "name": "Black Leather Shoes",
+        "gender": "mens",
+        "category": "shoes",
+        "image": "../photos/menblackdressshoes.png",
+        "images": ["../photos/menblackdressshoes.png", "../photos/menblackdressshoes2.png", "../photos/menblackdressshoes3.png"],
+        "sizes": ["S", "M", "L", "XL"],
+        "price": 140.00,
+        "description": "Description"
+
+    }
+]

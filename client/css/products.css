@@ -1,0 +1,142 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    font-family: "Lora", serif;
+}
+
+.navbar{
+    display: flex;
+    align-items: center;
+    background: linear-gradient(150deg, rgb(34, 72, 104), rgb(163, 179, 233));
+    padding: 0px;
+    flex-wrap: wrap;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+
+    height: 50px;
+    overflow: visible;
+}
+
+nav{
+    flex: 1;
+    text-align: right;
+}
+
+nav ul li{
+    display: inline-block;
+    margin-right: 25px;
+}
+
+nav a{
+    text-decoration: none;
+}
+
+
+.logo img{
+    height: 45px;
+    width: auto;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+
+.products-title{
+    text-align: center;
+    margin: 20px;
+}
+
+.filter{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.products-list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    padding: 10px;
+}
+
+
+.product{
+    background: white;
+    border: 10px;
+    padding: 15px;;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.product img{
+    width: 100%;
+    border-radius: 10px;
+}
+
+
+.product h3{
+    margin: 10px 0;
+}
+
+
+
+.price{
+    font-weight: bold;
+}
+
+
+.filter-container{
+    display: flex;
+    align-items: start;
+    gap: 10px;
+    padding: 10px;
+}
+
+.filters{
+    width: 200px;
+    min-width: 200px;
+    background: #bfbcbc;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    margin-top: 10px;
+}
+
+
+.filter-group{
+    margin-bottom: 15px;
+}
+
+
+.filter-title{
+    font-weight: 600;
+    cursor: pointer;
+    padding: 5px 0;
+    border-bottom: 1px solid #d0cece;
+}
+
+
+
+.filter-options{
+    display: none;
+    padding-left: 10px;
+}
+
+
+
+.filter-options div{
+    cursor: pointer;
+    padding: 4px 0;
+    font-weight: normal;
+    /* font-size: 15px; */
+    /* color: rgb(22, 22, 22); */
+
+}
+
+
+
+
