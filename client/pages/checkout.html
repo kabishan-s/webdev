@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Luxurious+Roman&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Luxurious+Roman&family=Pinyon+Script&display=swap" rel="stylesheet">
+
+    <title>Checkout</title>
+
+    <link rel="stylesheet" href="../css/checkout.css" />
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+    <script src="../js/checkout.js" defer></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <a href="homepage.html">
+            <img src="../logo/logo.png">
+          </a>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="homepage.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="">Contact</a></li>
+            <li><a href="">Account</a></li>
+            <li><a href="cart.html">Cart</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="checkout-wrapper">
+
+      <div class="checkout-left">
+        <h1 class="checkout-title">Checkout</h1>
+
+        <div class="section-block">
+          <h2>Contact</h2>
+          <div class="field">
+            <label>Email Address</label>
+            <input type="text" id="email" placeholder="john@example.com">
+            <span class="field-error" id="error-email"></span>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h2>Payment</h2>
+          <div class="field">
+            <label>Cardholder Name</label>
+            <input type="text" id="card-name" placeholder="John Smith" maxlength="60">
+            <span class="field-error" id="error-name"></span>
+          </div>
+          <div class="field">
+            <label>Card Number</label>
+            <input type="text" id="card-number" placeholder="1234 5678 9012 3456" maxlength="19">
+            <span class="field-error" id="error-number"></span>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label>Expiry Date</label>
+              <input type="text" id="card-expiry" placeholder="MM/YY" maxlength="5">
+              <span class="field-error" id="error-expiry"></span>
+            </div>
+            <div class="field">
+              <label>CVV</label>
+              <input type="text" id="card-cvv" placeholder="123" maxlength="3">
+              <span class="field-error" id="error-cvv"></span>
+            </div>
+          </div>
+        </div>
+
+        <button class="pay-btn" id="pay-btn">Complete Transaction</button>
+      </div>
+
+      <div class="checkout-right">
+        <h2>Order Summary</h2>
+        <div id="order-items"></div>
+        <div class="order-totals">
+          <p>Subtotal: $<span id="subtotal">0.00</span></p>
+          <p>Tax (13%): $<span id="tax">0.00</span></p>
+          <p class="order-total">Total: $<span id="total">0.00</span></p>
+        </div>
+      </div>
+
+    </div>
+
+  </body>
+</html>
