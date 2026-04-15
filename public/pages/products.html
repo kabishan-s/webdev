@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Luxurious+Roman&family=Pinyon+Script&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Luxurious+Roman&family=Pinyon+Script&display=swap"
+    rel="stylesheet">
+
   <title>Products</title>
 
   <link rel="stylesheet" href="../css/products.css">
@@ -13,6 +16,7 @@
 
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
+
 <body>
   <div class="navbar">
     <div class="logo">
@@ -21,24 +25,24 @@
       </a>
     </div>
     <nav>
-        <ul>
-          <li>
-            <a href="homepage.html">Home</a>
-          </li>
-          <li>
-            <a href="products.html">Products</a>
-          </li>
-          <li>
-            <a href="">Contact</a>
-          </li>
-          <li>
-            <a href="">Account</a>
-          </li>
-          <li>
-            <a href="cart.html">Cart</a>
-          </li>
-        </ul>
-      </nav>
+      <ul>
+        <li>
+          <a href="homepage.html">Home</a>
+        </li>
+        <li>
+          <a href="products.html">Products</a>
+        </li>
+        <li>
+          <a href="">Contact</a>
+        </li>
+        <li>
+          <a href="account.html">Account</a>
+        </li>
+        <li>
+          <a href="cart.html">Cart</a>
+        </li>
+      </ul>
+    </nav>
   </div>
 
   <div id="app" class="container mt-5">
@@ -61,7 +65,8 @@
             <div class="filter-options" v-show="categoryFilterOpen">
               <div @click="setFilter('category','')" :class="{active: filters.category === ''}">All</div>
               <div @click="setFilter('category','shirts')" :class="{active: filters.category === 'shirts'}">Shirts</div>
-              <div @click="setFilter('category','jackets')" :class="{active: filters.category === 'jackets'}">Jackets</div>
+              <div @click="setFilter('category','jackets')" :class="{active: filters.category === 'jackets'}">Jackets
+              </div>
               <div @click="setFilter('category','pants')" :class="{active: filters.category === 'pants'}">Pants</div>
               <div @click="setFilter('category','shoes')" :class="{active: filters.category === 'shoes'}">Shoes</div>
             </div>
@@ -71,8 +76,10 @@
             <div class="filter-options" v-show="priceFilterOpen">
               <div @click="setFilter('price','')" :class="{active: filters.price === ''}">All</div>
               <div @click="setFilter('price','0-150')" :class="{active: filters.price === '0-150'}">$0 - $150</div>
-              <div @click="setFilter('price','150-200')" :class="{active: filters.price === '150-200'}">$150 - $200</div>
-              <div @click="setFilter('price','200-300')" :class="{active: filters.price === '200-300'}">$200 - $300</div>
+              <div @click="setFilter('price','150-200')" :class="{active: filters.price === '150-200'}">$150 - $200
+              </div>
+              <div @click="setFilter('price','200-300')" :class="{active: filters.price === '200-300'}">$200 - $300
+              </div>
               <div @click="setFilter('price','300+')" :class="{active: filters.price === '300+'}">$300+</div>
             </div>
           </div>
@@ -98,4 +105,5 @@
   <script src="../js/products.js"></script>
 
 </body>
+
 </html>

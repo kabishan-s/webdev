@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Luxurious+Roman&family=Pinyon+Script&display=swap"
+      rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Luxurious+Roman&family=Pinyon+Script&display=swap"
+      rel="stylesheet">
+
+    <title>Account</title>
+
+    <link rel="stylesheet" href="../css/account.css" />
+
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="logo">
+        <a href="homepage.html">
+          <img src="../logo/logo.png">
+        </a>
+      </div>
+      <nav>
+        <ul>
+          <li>
+            <a href="homepage.html">Home</a>
+          </li>
+          <li>
+            <a href="products.html">Products</a>
+          </li>
+          <li>
+            <a href="">Contact</a>
+          </li>
+          <li>
+            <a href="account.html">Account</a>
+          </li>
+          <li>
+            <a href="cart.html">Cart</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="account-container">
+      <div class="account">
+
+        <h1 class="account-title">Account</h1>
+
+        <div class="section" id="authentication">
+          <h2 id="form-title">Sign-In</h2>
+
+          <div class="field">
+            <label>Email</label>
+            <input type="text" id="email">
+            <span class="field-error" id="email-error"></span>
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <input type="password" id="password">
+            <span class="field-error" id="password-error"></span>
+          </div>
+
+          <button class="signin-button" id="signin-button">Sign-In</button>
+
+          <p style="margin-top:10px;">
+            <a href="#" id="toggle-form">Don't have an account? Create Account</a>
+          </p>
+        </div>
+
+        <div id="account-overview" style="display:none;">
+        <div class="overview">
+          <div class="orders">
+            <h2>Orders</h2>
+            <div id="orders">
+            </div>
+          </div>
+
+          <div class="account-info">
+            <h3>Account Info</h3>
+            <p id="user-email"></p>
+            <button id="signout-button">Sign Out</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  <script src="../js/account.js"></script>
+  </body>
+</html>

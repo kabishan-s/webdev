@@ -1,74 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Luxurious+Roman&family=Pinyon+Script&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Luxurious+Roman&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Luxurious+Roman&family=Pinyon+Script&display=swap"
+      rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Luxurious+Roman&family=Pinyon+Script&display=swap"
+      rel="stylesheet">
 
     <title>Products</title>
 
-     
+
     <link rel="stylesheet" href="../css/cart.css" />
 
     <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
-    
-    <script src="../js/cart.js" defer></script>
-    
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   </head>
 
   <body>
     <div class="container">
-        <div class="navbar">
-          <div class="logo">
-            <a href="homepage.html">
-              <img src="../logo/logo.png">
-            </a>
-          </div>
-          <nav>
-            <ul>
-              <li>
-                <a href="homepage.html">Home</a>
-              </li>
-              <li>
-                <a href="products.html">Products</a>
-              </li>
-              <li>
-                <a href="">Contact</a>
-              </li>
-              <li>
-                <a href="">Account</a>
-              </li>
-              <li>
-                <a href="cart.html">Cart</a>
-              </li>
-            </ul>
-          </nav>
+      <div class="navbar">
+        <div class="logo">
+          <a href="homepage.html">
+            <img src="../logo/logo.png">
+          </a>
+        </div>
+        <nav>
+          <ul>
+            <li>
+              <a href="homepage.html">Home</a>
+            </li>
+            <li>
+              <a href="products.html">Products</a>
+            </li>
+            <li>
+              <a href="">Contact</a>
+            </li>
+            <li>
+              <a href="account.html">Account</a>
+            </li>
+            <li>
+              <a href="cart.html">Cart</a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
 
-      
-    <h1 class="cart-title">Cart</h1> 
-    <div class="cart">
-      <div class="cart-items" id="cart-items"></div>
 
-        <div class="summary">
-          <h2>Summary</h2>
-          <p>Subtotal: $<span id="subtotal">0</span></p>
-          <p>Estimated Tax (13%): $<span id="tax">0</span></p>
-          <p class="total">Total: $<span id="total">0</span></p>
-          <button class="checkout" onclick="window.location.href='checkout.html'">Checkout</button>
+    <div id="app">
+        <h1 class="cart-title">Cart</h1>
+        <div class="cart">
+
+          <div class="cart-items">
+            <div v-for="(item, index) in cart" :key="index" class="cart-item">
+              <img :src="item.image">
+              <div class="item-info">
+                <div class="item-header">
+                  <div class="item-name">{{item.name}}</div>
+                  <div class="item-price">${{(item.price * item.quantity).toFixed(2)}}</div>
+                </div>
+                <div>{{item.description }}</div>
+                <div>Size: {{item.size}}</div>
+                <div class="quantity">
+                  <button @click="changeQuantity(index, -1)">-</button>
+                  <span>{{item.quantity}}</span>
+                  <button @click="changeQuantity(index, 1)">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="summary">
+            <h2>Summary</h2>
+            <p>Subtotal: ${{subtotal.toFixed(2)}}</p>
+            <p>Estimated Tax (13%): ${{tax.toFixed(2)}}</p>
+            <p class="total">Total: ${{total.toFixed(2)}}</p>
+            <button class="checkout" onclick="window.location.href='checkout.html'">Checkout</button>
+          </div>
         </div>
-    </div>
+      </div>
+      <script src="../js/cart.js"></script>
   </body>
 </html>
-
-
-
-
-
-
-

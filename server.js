@@ -25,7 +25,7 @@ app.get("/api/products", (req, res) =>{
 
 app.get("/api/products/:id", (req, res) =>{
   const products = getProducts();
-  const product = products.find(p => p.id == req.params.id);
+  const product = products.find(product => product.id == req.params.id);
   if(!product){
     return res.status(404).json({ error: "Product not found" });
   }
@@ -38,32 +38,133 @@ app.get("/api/products/filter", (req, res) =>{
   const{gender, category, price} = req.query;
 
   if(gender){
-    products = products.filter(p => p.gender === gender);
+    products = products.filter(product => product.gender === gender);
   }
 
   if(category){
-    products = products.filter(p => p.category === category);
+    products = products.filter(product => product.category === category);
   }
 
   if(price){
     if(price === "0-150"){
-      products = products.filter(p => p.price <= 150);
+      products = products.filter(product => product.price <= 150);
     }
     if(price === "150-200"){
-      products = products.filter(p => p.price >= 150 && p.price <= 200);
+      products = products.filter(product => product.price >= 150 && product.price <= 200);
     }
     if(price === "200-300"){
-      products = products.filter(p => p.price >= 200 && p.price <= 300);
+      products = products.filter(product => product.price >= 200 && product.price <= 300);
     }
     if(price === "300+"){
-      products = products.filter(p => p.price >= 300);
+      products = products.filter(product => product.price >= 300);
     }
   }
   res.json(products);
 });
 
+function getUsers(){
+  const file = path.join(__dirname, "json", "users.json");
+  return JSON.parse(fs.readFileSync(file, "utf8"));
+}
+
+function addUsers(users){
+  const file = path.join(__dirname, "json", "users.json");
+  fs.writeFileSync(file, JSON.stringify(users, null, 2));
+}
+
+app.post("/api/register", (req, res) => {
+  const {email, password} = req.body;
+  let users = getUsers();
+
+  if(users.find(u => u.email === email)){
+    return res.json({error: "An account with these credentials already exists"});
+  }
+
+  const newUser = {
+    email,
+    password,
+    type: "user",
+    cart: [],
+    orders: []
+  };
+
+  users.push(newUser);
+  addUsers(users);
+  res.json({user: newUser});
+});
+
+app.post("/api/login", (req, res) => {
+  const {email, password} = req.body;
+  let users = getUsers();
+  const user = users.find(u => u.email === email && u.password === password);
+
+  if(!user){
+    return res.json({error: "Account not found"});
+  }
+
+  res.json({user});
+});
+
+app.post("/api/cart/update", (req, res) => {
+  const {email, cart} = req.body;
+  let users = getUsers();
+  const userIndex = users.findIndex(u => u.email === email);
+  
+  if(userIndex === -1){
+    return res.status(404).json({error: "User not found"});
+  }
+  
+  users[userIndex].cart = cart;
+  addUsers(users);
+  res.json({success: true, cart});
+});
+
+
+app.get("/api/cart/:email", (req, res) => {
+  const users = getUsers();
+  const user = users.find(u => u.email === req.params.email);
+  
+  if(!user){
+    return res.status(404).json({error: "User not found"});
+  }
+  
+  res.json({cart: user.cart || []});
+});
+
+app.post("/api/orders/create", (req, res) => {
+  const {email, cart, total} = req.body;
+  let users = getUsers();
+  const userIndex = users.findIndex(u => u.email === email);
+
+  if (userIndex === -1){
+    return res.status(404).json({error: "User not found"});
+  }
+
+  const newOrder = {
+    id: Date.now(),
+    date: new Date().toISOString(),
+    items: cart,
+    total: Number(total)
+  };
+
+  users[userIndex].orders = users[userIndex].orders || [];
+  users[userIndex].orders.unshift(newOrder);
+  addUsers(users);
+  res.json({ success: true, order: newOrder });
+});
+
+app.get("/api/orders/:email", (req, res) => {
+  const users = getUsers();
+  const user = users.find(u => u.email === req.params.email);
+  if(!user){
+    return res.status(404).json({error: "User not found"});
+  }
+  res.json({orders: user.orders || []});
+});
+
+
 app.use((req, res) => {
-  res.sendFile(path.join(__dirname, "public", "html", "homepage.html"));
+  res.sendFile(path.join(__dirname, "public", "pages", "homepage.html"));
 });
 
 app.set('port', process.env.PORT || 3000)

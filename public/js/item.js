@@ -1,4 +1,4 @@
-async function loadProduct(){
+async function loadProduct() {
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
 
@@ -16,11 +16,11 @@ async function loadProduct(){
   const imagesColumn = document.getElementById("images-column");
   imagesColumn.innerHTML = "";
 
-  images.forEach(img =>{
+  images.forEach(img => {
     const image = document.createElement("img");
     image.src = img;
 
-    image.addEventListener("click", () =>{
+    image.addEventListener("click", () => {
       mainImg.src = img;
     });
     imagesColumn.appendChild(image);
@@ -30,12 +30,12 @@ async function loadProduct(){
   const sizes = document.getElementById("sizes");
   sizes.innerHTML = "";
 
-  if(product.sizes){
-    product.sizes.forEach(size =>{
+  if (product.sizes) {
+    product.sizes.forEach(size => {
       const div = document.createElement("div");
       div.textContent = size;
       div.classList.add("size-option");
-      div.onclick = () =>{
+      div.onclick = () => {
         document.querySelectorAll(".size-option").forEach(s => s.classList.remove("selected"));
         div.classList.add("selected");
         selectedSize = size;
@@ -44,12 +44,28 @@ async function loadProduct(){
     });
   }
 
-  document.querySelector(".add-to-cart").onclick = () =>{
-    if(!selectedSize){
-      return alert("Select size first");
-    }
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  async function upadteWithServer(email, cart){
+    const response = await fetch('/api/cart/update', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({email, cart})
+    });
+    return response.json();
+  }
 
+  document.querySelector(".add-to-cart").onclick = async () => {
+    let user = JSON.parse(localStorage.getItem("user"));
+    if(!user){
+      alert("Sign-in before adding items to cart.");
+      window.location.href = "account.html";
+      return;
+    }
+
+    if(!selectedSize){
+      return alert("Select a size first.");
+    }
+
+    let cart = user.cart || [];
     const inCart = cart.find(i => i.id == product.id && i.size === selectedSize);
 
     if(inCart){
@@ -65,7 +81,9 @@ async function loadProduct(){
         quantity: 1
       });
     }
-    localStorage.setItem("cart", JSON.stringify(cart));
+    user.cart = cart;
+    localStorage.setItem("user", JSON.stringify(user));
+    await upadteWithServer(user.email, cart);
     alert("Added to cart");
   };
 }
