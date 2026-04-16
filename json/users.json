@@ -1,1 +1,266 @@
-[]
+[
+  {
+    "email": "john@example.com",
+    "password": "password",
+    "type": "user",
+    "cart": [
+      {
+        "id": 1,
+        "name": "Blue Plaid Suit",
+        "gender": "mens",
+        "category": "jackets",
+        "price": 200,
+        "colour": "blue",
+        "image": "../photos/menplaidsuitbg.png",
+        "description": "Elevate your character with this unique, yet modern blue suit covered in a stylish plaid pattern. ",
+        "size": "XL",
+        "quantity": 2
+      }
+    ],
+    "orders": [
+      {
+        "id": 1776375053292,
+        "date": "2026-04-16T21:30:53.292Z",
+        "items": [
+          {
+            "id": 5,
+            "name": "Black Leather Shoes",
+            "gender": "mens",
+            "category": "shoes",
+            "price": 140,
+            "colour": "black",
+            "image": "../photos/menblackdressshoes.png",
+            "description": "Description",
+            "size": "XL",
+            "quantity": 2
+          }
+        ],
+        "total": 316.4
+      },
+      {
+        "id": 1776288340898,
+        "date": "2026-04-15T21:25:40.898Z",
+        "items": [
+          {
+            "id": 2,
+            "name": "Classic Black-Tie Suit",
+            "gender": "mens",
+            "category": "jackets",
+            "price": 250,
+            "colour": "black",
+            "image": "../photos/menclassicblacktiesuit.png",
+            "description": "Experience a daily professional lifestyle with this timeless black suit paired with a gleaming black tie. Made from premium wool and cashmere to provide comfort for a breathable feel, and suitability for daily wear.",
+            "size": "XL",
+            "quantity": 8
+          },
+          {
+            "id": 3,
+            "name": "Classic White Button-Down Dress Shirt",
+            "gender": "mens",
+            "category": "shirts",
+            "price": 60,
+            "colour": "white",
+            "image": "../photos/menclassicwhitedressshirt.png",
+            "description": "Description",
+            "size": "XL",
+            "quantity": 4
+          }
+        ],
+        "total": 2531.2
+      },
+      {
+        "id": 1776283838523,
+        "date": "2026-04-15T20:10:38.523Z",
+        "items": [
+          {
+            "id": 1,
+            "name": "Blue Plaid Suit",
+            "gender": "mens",
+            "category": "jackets",
+            "price": 200,
+            "image": "../photos/menplaidsuitbg.png",
+            "description": "Elevate your character with this unique, yet modern blue suit covered in a stylish plaid pattern. ",
+            "size": "XL",
+            "quantity": 2
+          }
+        ],
+        "total": 452
+      },
+      {
+        "id": 1776282624408,
+        "date": "2026-04-15T19:50:24.408Z",
+        "items": [
+          {
+            "id": 1,
+            "name": "Blue Plaid Suit",
+            "gender": "mens",
+            "category": "jackets",
+            "price": 200,
+            "image": "../photos/menplaidsuitbg.png",
+            "description": "Elevate your character with this unique, yet modern blue suit covered in a stylish plaid pattern. ",
+            "size": "XL",
+            "quantity": 6
+          }
+        ],
+        "total": 1356
+      }
+    ]
+  },
+  {
+    "email": "john2@example.com",
+    "password": "password2",
+    "type": "admin",
+    "cart": [],
+    "orders": [
+      {
+        "id": 1776302031386,
+        "date": "2026-04-16T01:13:51.386Z",
+        "items": [
+          {
+            "id": 1,
+            "name": "Blue Plaid Suit",
+            "gender": "mens",
+            "category": "jackets",
+            "price": 200,
+            "colour": "blue",
+            "image": "../photos/menplaidsuitbg.png",
+            "description": "Elevate your character with this unique, yet modern blue suit covered in a stylish plaid pattern. ",
+            "size": "XL",
+            "quantity": 8
+          },
+          {
+            "id": 2,
+            "name": "Classic Black-Tie Suit",
+            "gender": "mens",
+            "category": "jackets",
+            "price": 250,
+            "colour": "black",
+            "image": "../photos/menclassicblacktiesuit.png",
+            "description": "Experience a daily professional lifestyle with this timeless black suit paired with a gleaming black tie. Made from premium wool and cashmere to provide comfort for a breathable feel, and suitability for daily wear.",
+            "size": "XL",
+            "quantity": 4
+          },
+          {
+            "id": 3,
+            "name": "Classic White Button-Down Dress Shirt",
+            "gender": "mens",
+            "category": "shirts",
+            "price": 60,
+            "colour": "white",
+            "image": "../photos/menclassicwhitedressshirt.png",
+            "description": "Description",
+            "size": "XL",
+            "quantity": 2
+          },
+          {
+            "id": 4,
+            "name": "Classic Formal Black Pants",
+            "gender": "mens",
+            "category": "pants",
+            "price": 80,
+            "colour": "black",
+            "image": "../photos/menclassicformalblackpants.png",
+            "description": "Description",
+            "size": "XL",
+            "quantity": 2
+          }
+        ],
+        "total": 3254.4
+      }
+    ]
+  },
+  {
+    "email": "john3@example.com",
+    "password": "password3",
+    "type": "user",
+    "cart": [],
+    "orders": [
+      {
+        "id": 1776330770130,
+        "date": "2026-04-16T09:12:50.130Z",
+        "items": [
+          {
+            "id": 4,
+            "name": "Classic Formal Black Pants",
+            "gender": "mens",
+            "category": "pants",
+            "price": 80,
+            "colour": "black",
+            "image": "../photos/menclassicformalblackpants.png",
+            "description": "Description",
+            "size": "XL",
+            "quantity": 1
+          },
+          {
+            "id": 5,
+            "name": "Black Leather Shoes",
+            "gender": "mens",
+            "category": "shoes",
+            "price": 140,
+            "colour": "black",
+            "image": "../photos/menblackdressshoes.png",
+            "description": "Description",
+            "size": "XL",
+            "quantity": 1
+          },
+          {
+            "id": 3,
+            "name": "Classic White Button-Down Dress Shirt",
+            "gender": "mens",
+            "category": "shirts",
+            "price": 60,
+            "colour": "white",
+            "image": "../photos/menclassicwhitedressshirt.png",
+            "description": "Description",
+            "size": "XL",
+            "quantity": 2
+          },
+          {
+            "id": 3,
+            "name": "Classic White Button-Down Dress Shirt",
+            "gender": "mens",
+            "category": "shirts",
+            "price": 60,
+            "colour": "white",
+            "image": "../photos/menclassicwhitedressshirt.png",
+            "description": "Description",
+            "size": "M",
+            "quantity": 2
+          }
+        ],
+        "total": 519.8
+      },
+      {
+        "id": 1776302171274,
+        "date": "2026-04-16T01:16:11.274Z",
+        "items": [
+          {
+            "id": 1,
+            "name": "Blue Plaid Suit",
+            "gender": "mens",
+            "category": "jackets",
+            "price": 200,
+            "colour": "blue",
+            "image": "../photos/menplaidsuitbg.png",
+            "description": "Elevate your character with this unique, yet modern blue suit covered in a stylish plaid pattern. ",
+            "size": "XL",
+            "quantity": 2
+          },
+          {
+            "id": 2,
+            "name": "Classic Black-Tie Suit",
+            "gender": "mens",
+            "category": "jackets",
+            "price": 250,
+            "colour": "black",
+            "image": "../photos/menclassicblacktiesuit.png",
+            "description": "Experience a daily professional lifestyle with this timeless black suit paired with a gleaming black tie. Made from premium wool and cashmere to provide comfort for a breathable feel, and suitability for daily wear.",
+            "size": "XL",
+            "quantity": 2
+          }
+        ],
+        "total": 1017
+      }
+    ]
+  }
+]

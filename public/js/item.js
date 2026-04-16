@@ -47,7 +47,7 @@ async function loadProduct() {
   async function upadteWithServer(email, cart){
     const response = await fetch('/api/cart/update', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({email, cart})
     });
     return response.json();
@@ -74,11 +74,14 @@ async function loadProduct() {
       cart.push({
         id: product.id,
         name: product.name,
+        gender: product.gender,
+        category: product.category,
         price: product.price,
+        colour: product.colour,
         image: product.image,
         description: product.description,
         size: selectedSize,
-        quantity: 1
+        quantity: 1,
       });
     }
     user.cart = cart;

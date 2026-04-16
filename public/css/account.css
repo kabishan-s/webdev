@@ -234,3 +234,27 @@ nav a{
     margin-top: 20px;
     gap: 20px;
 }
+
+.order-tabs{
+  display: flex;
+  margin-bottom: 15px;
+  gap: 10px;
+}
+
+.order-tabs button{
+  background: #eee;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.order-tabs button.active{
+  background: black;
+  color: white;
+}
+
+.order-email{
+  font-size: 15px;
+  color: gray;
+  margin-top: 2px;
+}

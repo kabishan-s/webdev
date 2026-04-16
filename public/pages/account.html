@@ -77,9 +77,18 @@
         <div id="account-overview" style="display:none;">
         <div class="overview">
           <div class="orders">
-            <h2>Orders</h2>
-            <div id="orders">
+            <h2 id="section-title">Orders</h2>
+            <div class="order-tabs" id="order-tabs" style="display:none;">
+              <button id="orders-tab" class="active">Orders</button>
+              <button id="all-orders-tab">All Orders</button>
+              <button id="sales-trend-tab">Sales Trend</button>
+              <button id="product-sales-tab">Product Sales</button>
+              <button id="gender-sales-tab">Gender Sales</button>
             </div>
+            <div id="orders"></div>
+            <svg id="trend-chart" style="display:none;"></svg>
+            <svg id="product-chart" style="display:none;"></svg>
+            <svg id="gender-chart" style="display:none;"></svg>
           </div>
 
           <div class="account-info">

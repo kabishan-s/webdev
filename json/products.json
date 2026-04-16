@@ -8,6 +8,7 @@
         "images": ["../photos/menplaidsuitbg.png", "../photos/menplaidsuit2.png", "../photos/menplaidsuit3.png"],
         "sizes": ["M", "L", "XL"],
         "price": 200.00,
+        "colour": "blue",
         "description": "Elevate your character with this unique, yet modern blue suit covered in a stylish plaid pattern. "
     },
     {
@@ -19,6 +20,7 @@
         "images": ["../photos/menclassicblacktiesuit.png", "../photos/menclassicblacktiesuit2.png", "../photos/menclassicblacktiesuit3.png"],
         "sizes": ["S", "M", "L", "XL"],
         "price": 250.00,
+        "colour": "black",
         "description": "Experience a daily professional lifestyle with this timeless black suit paired with a gleaming black tie. Made from premium wool and cashmere to provide comfort for a breathable feel, and suitability for daily wear."
     },
 
@@ -31,6 +33,7 @@
         "images": ["../photos/menclassicwhitedressshirt.png", "../photos/menclassicwhitedressshirt2.png", "../photos/menclassicwhitedressshirt3.png"],
         "sizes": ["S", "M", "L", "XL"],
         "price": 60.00,
+        "colour": "white",
         "description": "Description"
 
     },
@@ -43,6 +46,7 @@
         "images": ["../photos/menclassicformalblackpants.png", "../photos/menclassicformalblackpants2.png", "../photos/menclassicformalblackpants3.png"],
         "sizes": ["S", "M", "L", "XL"],
         "price": 80.00,
+        "colour": "black",
         "description": "Description"
 
     },
@@ -55,6 +59,7 @@
         "images": ["../photos/menblackdressshoes.png", "../photos/menblackdressshoes2.png", "../photos/menblackdressshoes3.png"],
         "sizes": ["S", "M", "L", "XL"],
         "price": 140.00,
+        "colour": "black",
         "description": "Description"
 
     }

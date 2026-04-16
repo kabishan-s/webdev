@@ -72,7 +72,7 @@ function addUsers(users){
   fs.writeFileSync(file, JSON.stringify(users, null, 2));
 }
 
-app.post("/api/register", (req, res) => {
+app.post("/api/register", (req, res) =>{
   const {email, password} = req.body;
   let users = getUsers();
 
@@ -93,7 +93,7 @@ app.post("/api/register", (req, res) => {
   res.json({user: newUser});
 });
 
-app.post("/api/login", (req, res) => {
+app.post("/api/login", (req, res) =>{
   const {email, password} = req.body;
   let users = getUsers();
   const user = users.find(u => u.email === email && u.password === password);
@@ -105,7 +105,7 @@ app.post("/api/login", (req, res) => {
   res.json({user});
 });
 
-app.post("/api/cart/update", (req, res) => {
+app.post("/api/cart/update", (req, res) =>{
   const {email, cart} = req.body;
   let users = getUsers();
   const userIndex = users.findIndex(u => u.email === email);
@@ -120,7 +120,7 @@ app.post("/api/cart/update", (req, res) => {
 });
 
 
-app.get("/api/cart/:email", (req, res) => {
+app.get("/api/cart/:email", (req, res) =>{
   const users = getUsers();
   const user = users.find(u => u.email === req.params.email);
   
@@ -131,7 +131,7 @@ app.get("/api/cart/:email", (req, res) => {
   res.json({cart: user.cart || []});
 });
 
-app.post("/api/orders/create", (req, res) => {
+app.post("/api/orders/create", (req, res) =>{
   const {email, cart, total} = req.body;
   let users = getUsers();
   const userIndex = users.findIndex(u => u.email === email);
@@ -153,7 +153,7 @@ app.post("/api/orders/create", (req, res) => {
   res.json({ success: true, order: newOrder });
 });
 
-app.get("/api/orders/:email", (req, res) => {
+app.get("/api/orders/:email", (req, res) =>{
   const users = getUsers();
   const user = users.find(u => u.email === req.params.email);
   if(!user){
@@ -162,8 +162,83 @@ app.get("/api/orders/:email", (req, res) => {
   res.json({orders: user.orders || []});
 });
 
+app.get("/api/orders", (req, res) =>{
+  const users = getUsers();
+  let allOrders = [];
 
-app.use((req, res) => {
+  users.forEach(user => {
+    (user.orders || []).forEach(order => {
+      allOrders.push({
+        ...order,
+        email: user.email
+      });
+    });
+  });
+  allOrders.sort((a, b) => new Date(b.date) - new Date(a.date));
+  res.json({orders: allOrders});
+});
+
+
+app.get("/api/sales/trend", (req, res) =>{
+  const users = getUsers();
+
+  const orders = users.flatMap(user => 
+    (user.orders || []).map(order => ({date: order.date, total: order.total}))
+  );
+
+  const dailySales = {};
+
+  orders.forEach(order => {
+    const day = order.date.split("T")[0];
+    dailySales[day] = (dailySales[day] || 0) + order.total;
+  });
+  const result = Object.entries(dailySales).map(([date, total]) => ({date, total}));
+
+  res.json(result);
+});
+
+app.get("/api/sales/products", (req, res) =>{
+  const users = getUsers();
+  const productSales = {};
+
+  users.forEach(user => {
+    (user.orders || []).forEach(order => {
+      order.items.forEach(item => {
+        const category = item.category;
+
+        if(!productSales[category]){
+          productSales[category] = 0;
+        }
+        productSales[category] += item.price * item.quantity;
+      });
+    });
+  });
+  const result = Object.entries(productSales).map(([category, total]) => ({category, total}));
+
+  res.json(result);
+});
+
+app.get("/api/sales/gender", (req, res) =>{
+  const users = getUsers();
+  const genderSales = {};
+
+  users.forEach(user => {
+    (user.orders || []).forEach(order => {
+      order.items.forEach(item => {
+        const gender = item.gender;
+        if(!genderSales[gender]){
+          genderSales[gender] = 0;
+        }
+        genderSales[gender] += item.quantity;
+      });
+    });
+  });
+  const result = Object.entries(genderSales).map(([gender, count]) =>({gender, count}));
+
+  res.json(result);
+});
+
+app.use((req, res) =>{
   res.sendFile(path.join(__dirname, "public", "pages", "homepage.html"));
 });
 

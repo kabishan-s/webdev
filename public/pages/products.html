@@ -4,9 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Luxurious+Roman&family=Pinyon+Script&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Luxurious+Roman&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Luxurious+Roman&family=Pinyon+Script&display=swap" rel="stylesheet">
 
   <title>Products</title>
 
@@ -65,21 +64,29 @@
             <div class="filter-options" v-show="categoryFilterOpen">
               <div @click="setFilter('category','')" :class="{active: filters.category === ''}">All</div>
               <div @click="setFilter('category','shirts')" :class="{active: filters.category === 'shirts'}">Shirts</div>
-              <div @click="setFilter('category','jackets')" :class="{active: filters.category === 'jackets'}">Jackets
-              </div>
+              <div @click="setFilter('category','jackets')" :class="{active: filters.category === 'jackets'}">Jackets</div>
               <div @click="setFilter('category','pants')" :class="{active: filters.category === 'pants'}">Pants</div>
               <div @click="setFilter('category','shoes')" :class="{active: filters.category === 'shoes'}">Shoes</div>
             </div>
           </div>
+
+          <div class="filter-group">
+            <div class="filter-title" @click="toggle('colourFilterOpen')">Colour</div>
+            <div class="filter-options" v-show="colourFilterOpen">
+              <div @click="setFilter('colour','')" :class="{active: filters.colour === ''}">All</div>
+              <div @click="setFilter('colour','black')" :class="{active: filters.colour === 'black'}">Black</div>
+              <div @click="setFilter('colour','white')" :class="{active: filters.colour === 'white'}">White</div>
+              <div @click="setFilter('colour','blue')" :class="{active: filters.colour === 'blue'}">Blue</div>
+            </div>
+          </div>
+
           <div class="filter-group">
             <div class="filter-title" @click="toggle('priceFilterOpen')">Price</div>
             <div class="filter-options" v-show="priceFilterOpen">
               <div @click="setFilter('price','')" :class="{active: filters.price === ''}">All</div>
               <div @click="setFilter('price','0-150')" :class="{active: filters.price === '0-150'}">$0 - $150</div>
-              <div @click="setFilter('price','150-200')" :class="{active: filters.price === '150-200'}">$150 - $200
-              </div>
-              <div @click="setFilter('price','200-300')" :class="{active: filters.price === '200-300'}">$200 - $300
-              </div>
+              <div @click="setFilter('price','150-200')" :class="{active: filters.price === '150-200'}">$150 - $200</div>
+              <div @click="setFilter('price','200-300')" :class="{active: filters.price === '200-300'}">$200 - $300</div>
               <div @click="setFilter('price','300+')" :class="{active: filters.price === '300+'}">$300+</div>
             </div>
           </div>
