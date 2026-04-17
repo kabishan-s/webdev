@@ -10,12 +10,13 @@ createApp({
         price: '',
         colour: '',
         rating: 0,
+        search: '',
       },
       genderFilterOpen: false,
       categoryFilterOpen: false,
       priceFilterOpen: false,
       colourFilterOpen: false,
-      ratingFilterOpen: false
+      ratingFilterOpen: false,
     }
   },
 
@@ -50,6 +51,10 @@ createApp({
           return false;
         }
 
+        if (!(product.name.toLowerCase().includes(this.filters.search.toLowerCase()))) {
+          return false;
+        }
+
         return true;
       })
     },
@@ -71,6 +76,10 @@ createApp({
       }
       if(this.filters.price){
         text.push("$" + this.filters.price);
+      }
+
+      if (this.filters.search !== "") {
+        text.push(`"${this.filters.search}"`);
       }
 
       if(text.length){
