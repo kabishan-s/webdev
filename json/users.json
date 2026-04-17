@@ -110,7 +110,44 @@
     "email": "john2@example.com",
     "password": "password2",
     "type": "admin",
-    "cart": [],
+    "cart": [
+      {
+        "id": 1,
+        "name": "Blue Plaid Suit",
+        "gender": "mens",
+        "category": "jackets",
+        "price": 200,
+        "colour": "blue",
+        "image": "../photos/menplaidsuitbg.png",
+        "description": "Elevate your character with this unique, yet modern blue suit covered in a stylish plaid pattern. ",
+        "size": "XL",
+        "quantity": 4
+      },
+      {
+        "id": 1,
+        "name": "Blue Plaid Suit",
+        "gender": "mens",
+        "category": "jackets",
+        "price": 200,
+        "colour": "blue",
+        "image": "../photos/menplaidsuitbg.png",
+        "description": "Elevate your character with this unique, yet modern blue suit covered in a stylish plaid pattern. ",
+        "size": "L",
+        "quantity": 2
+      },
+      {
+        "id": 3,
+        "name": "Classic White Button-Down Dress Shirt",
+        "gender": "mens",
+        "category": "shirts",
+        "price": 60,
+        "colour": "white",
+        "image": "../photos/menclassicwhitedressshirt.png",
+        "description": "Description",
+        "size": "XL",
+        "quantity": 2
+      }
+    ],
     "orders": [
       {
         "id": 1776302031386,
@@ -260,6 +297,45 @@
           }
         ],
         "total": 1017
+      }
+    ]
+  },
+  {
+    "email": "john4@example.com",
+    "password": "password4",
+    "type": "user",
+    "cart": [],
+    "orders": [
+      {
+        "id": 1776377599240,
+        "date": "2026-04-16T22:13:19.240Z",
+        "items": [
+          {
+            "id": 3,
+            "name": "Classic White Button-Down Dress Shirt",
+            "gender": "mens",
+            "category": "shirts",
+            "price": 60,
+            "colour": "white",
+            "image": "../photos/menclassicwhitedressshirt.png",
+            "description": "Description",
+            "size": "XL",
+            "quantity": 2
+          },
+          {
+            "id": 5,
+            "name": "Black Leather Shoes",
+            "gender": "mens",
+            "category": "shoes",
+            "price": 140,
+            "colour": "black",
+            "image": "../photos/menblackdressshoes.png",
+            "description": "Description",
+            "size": "XL",
+            "quantity": 1
+          }
+        ],
+        "total": 293.8
       }
     ]
   }

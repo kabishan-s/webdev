@@ -6,6 +6,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Luxurious+Roman&family=Pinyon+Script&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Luxurious+Roman&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Luxurious+Roman&display=swap" rel="stylesheet">
 
     <title>Clothing Store</title>
 
@@ -15,111 +16,124 @@
 
     <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
     
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   </head>
 
   <body>
-    <div class="container">
-        <div class="navbar">
-          <div class="logo">
-            <a href="homepage.html">
-              <img src="../logo/logo.png">
+
+    <nav class="navbar is-light" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="homepage.html">
+          <img src="../logo/logo.png" alt="Logo">
+        </a>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbar" class="navbar-menu">
+        <div class="navbar-end">
+          <a class="navbar-item" href="homepage.html">
+            Home
+          </a>
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link" href="products.html">
+              Products
             </a>
+            <div class="navbar-dropdown">
+              <p class="navbar-item navbar-section">Men</p>
+              <a class="navbar-item" href="products.html?gender=mens&category=shirts">Shirts</a>
+              <a class="navbar-item" href="products.html?gender=mens&category=jackets">Jackets</a>
+              <a class="navbar-item" href="products.html?gender=mens&category=pants">Pants</a>
+              <a class="navbar-item" href="products.html?gender=mens&category=shoes">Shoes</a>
+              <hr class="navbar-divider">
+              <p class="navbar-item navbar-section">Women</p>
+              <a class="navbar-item" href="products.html?gender=womens&category=shirts">Shirts</a>
+              <a class="navbar-item" href="products.html?gender=womens&category=jackets">Jackets</a>
+              <a class="navbar-item" href="products.html?gender=womens&category=pants">Pants</a>
+              <a class="navbar-item" href="products.html?gender=womens&category=shoes">Shoes</a>
+            </div>
           </div>
-          <nav>
-            <ul>
-              <li>
-                <a href="homepage.html">Home</a>
-              </li>
-              <li>
-                <a href="products.html">Products</a>
-              </li>
-              <li>
-                <a href="">Contact</a>
-              </li>
-              <li>
-                <a href="account.html">Account</a>
-              </li>
-              <li>
-                <a href="cart.html">Cart</a>
-              </li>
-            </ul>
-          </nav>
+          <a class="navbar-item" href="account.html">
+            Account
+          </a>
+          <a class="navbar-item" href="cart.html">
+            Cart
+          </a>
+        </div>
       </div>
-    </div>
-    <div class="home">
-      <div class="title">
-        <h1>LUXURY APPAREL</h1>
-        <p>clothing made for luxury</p>
-        <a href="products.html" class="button">Start Shopping</a>
+    </nav>
+    <div class="container">
+      <div class="home">
+        <div class="title">
+          <h1>LUXURY APPAREL</h1>
+          <p>Elevate Your Wardrobe</p>
+          <a href="products.html" class="button">Start Shopping</a>
+        </div>
+        <div class="hero">
+          <img src="../logo/logo.png">
+        </div>
       </div>
-      <div class="hero">
-        <img src="../logo/logo.png">
-      </div>
-    </div>
 
-    <!-- Catalog -->
-    <div class="category-banner">
-      <img src="../photos/menbanner.png">
-      <div class="banner-caption">
-        <h2>MEN'S COLLECTION</h2>
+      <!-- Catalog -->
+      <div class="category-banner">
+        <img src="../photos/menbanner.png">
+        <div class="banner-caption">
+          <h2>MEN'S COLLECTION</h2>
+        </div>
       </div>
-    </div>
-    <div class="apparel">
-      <h2 class="section">Shop For Men</h2>
-      <div class="mens">
-        <a href="products.html?gender=mens&category=shirts" class="category">
-          <img src="../photos/menshirt.png">
-          <p class="category-name">Shirts</p>
-        </a>
-        <a href="products.html?gender=mens&category=jackets" class="category">
-          <img src="../photos/menjacket.png">
-          <p class="category-name">Jackets</p>
-        </a>
-        <a href="products.html?gender=mens&category=pants" class="category">
-          <img src="../photos/menpants.png">
-          <p class="category-name">Pants</p>
-        </a>
-        <a href="products.html?gender=mens&category=shoes" class="category">
-          <img src="../photos/menshoes.png">
-          <p class="category-name">Shoes</p>
-        </a>
+      <div class="apparel">
+        <h2 class="section">Shop For Men</h2>
+        <div class="mens">
+          <a href="products.html?gender=mens&category=shirts" class="category">
+            <img src="../photos/menshirt.png">
+            <p class="category-name">Shirts</p>
+          </a>
+          <a href="products.html?gender=mens&category=jackets" class="category">
+            <img src="../photos/menjacket.png">
+            <p class="category-name">Jackets</p>
+          </a>
+          <a href="products.html?gender=mens&category=pants" class="category">
+            <img src="../photos/menpants.png">
+            <p class="category-name">Pants</p>
+          </a>
+          <a href="products.html?gender=mens&category=shoes" class="category">
+            <img src="../photos/menshoes.png">
+            <p class="category-name">Shoes</p>
+          </a>
+        </div>
       </div>
-    </div>
 
-    <div class="category-banner">
-      <img src="../photos/womenbanner.png">
-      <div class="banner-caption">
-        <h2>WOMEN'S COLLECTION</h2>
+      <div class="category-banner">
+        <img src="../photos/womenbanner.png">
+        <div class="banner-caption">
+          <h2>WOMEN'S COLLECTION</h2>
+        </div>
       </div>
-    </div>
-    <div class="apparel">
-      <h2 class="section">Shop For Women</h2>
-      <div class="mens">
-        <a href="products.html?gender=womens&category=shirts" class="category">
-          <img src="../photos/womenshirt.png">
-          <p class="category-name">Shirts</p>
-        </a>
-        <a href="products.html?gender=womens&category=jackets" class="category">
-          <img src="../photos/womenjacket.png">
-          <p class="category-name">Jackets</p>
-        </a>
-        <a href="products.html?gender=womens&category=pants" class="category">
-          <img src="../photos/womenpants.png">
-          <p class="category-name">Pants</p>
-        </a>
-        <a href="products.html?gender=womens&category=shoes" class="category">
-          <img src="../photos/womenshoes.png">
-          <p class="category-name">Shoes</p>
-        </a>
+      <div class="apparel">
+        <h2 class="section">Shop For Women</h2>
+        <div class="mens">
+          <a href="products.html?gender=womens&category=shirts" class="category">
+            <img src="../photos/womenshirt.png">
+            <p class="category-name">Shirts</p>
+          </a>
+          <a href="products.html?gender=womens&category=jackets" class="category">
+            <img src="../photos/womenjacket.png">
+            <p class="category-name">Jackets</p>
+          </a>
+          <a href="products.html?gender=womens&category=pants" class="category">
+            <img src="../photos/womenpants.png">
+            <p class="category-name">Pants</p>
+          </a>
+          <a href="products.html?gender=womens&category=shoes" class="category">
+            <img src="../photos/womenshoes.png">
+            <p class="category-name">Shoes</p>
+          </a>
+        </div>
       </div>
     </div>
 
   </body>
 </html>
-
-
-
-
-
-
-

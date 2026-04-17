@@ -12,27 +12,54 @@
     <link rel="stylesheet" href="../css/checkout.css" />
     <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
     <script src="../js/checkout.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   </head>
 
   <body>
-    <div class="container">
-      <div class="navbar">
-        <div class="logo">
-          <a href="homepage.html">
-            <img src="../logo/logo.png">
+    <nav class="navbar is-light" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="homepage.html">
+          <img src="../logo/logo.png" alt="Logo">
+        </a>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbar" class="navbar-menu">
+        <div class="navbar-end">
+          <a class="navbar-item" href="homepage.html">
+            Home
+          </a>
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link" href="products.html">
+              Products
+            </a>
+            <div class="navbar-dropdown">
+              <p class="navbar-item navbar-section">Men</p>
+              <a class="navbar-item" href="products.html?gender=mens&category=shirts">Shirts</a>
+              <a class="navbar-item" href="products.html?gender=mens&category=jackets">Jackets</a>
+              <a class="navbar-item" href="products.html?gender=mens&category=pants">Pants</a>
+              <a class="navbar-item" href="products.html?gender=mens&category=shoes">Shoes</a>
+              <hr class="navbar-divider">
+              <p class="navbar-item navbar-section">Women</p>
+              <a class="navbar-item" href="products.html?gender=womens&category=shirts">Shirts</a>
+              <a class="navbar-item" href="products.html?gender=womens&category=jackets">Jackets</a>
+              <a class="navbar-item" href="products.html?gender=womens&category=pants">Pants</a>
+              <a class="navbar-item" href="products.html?gender=womens&category=shoes">Shoes</a>
+            </div>
+          </div>
+          <a class="navbar-item" href="account.html">
+            Account
+          </a>
+          <a class="navbar-item" href="cart.html">
+            Cart
           </a>
         </div>
-        <nav>
-          <ul>
-            <li><a href="homepage.html">Home</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="">Contact</a></li>
-            <li><a href="account.html">Account</a></li>
-            <li><a href="cart.html">Cart</a></li>
-          </ul>
-        </nav>
       </div>
-    </div>
+    </nav>
 
     <div class="checkout-wrapper">
 

@@ -1,61 +1,64 @@
 let signinPage = true;
 
 
-document.getElementById("toggle-form").onclick = function (){
-  signinPage = !signinPage;
+$(document).ready(function () {
+  $("#toggle-form").click(function () {
+    signinPage = !signinPage;
 
-  if(signinPage){
-    document.getElementById("form-title").textContent = "Sign-In";
-    document.getElementById("signin-button").textContent = "Sign-In";
-    document.getElementById("toggle-form").textContent = "Don't have an account? Create Account";
-  }else{
-    document.getElementById("form-title").textContent = "Create Account";
-    document.getElementById("signin-button").textContent = "Create Account";
-    document.getElementById("toggle-form").textContent = "Have an account? Sign-In";
-  }
-};
-
-document.getElementById("signin-button").onclick = async () =>{
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value.trim();
-
-  let validCredential = true;
-
-  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
-    document.getElementById("email-error").textContent = "Invalid email";
-    validCredential = false;
-  }else{
-    document.getElementById("email-error").textContent = "";
-  }
-
-  if(password.length < 8){
-    document.getElementById("password-error").textContent = "Password must be at least 8 characters";
-    validCredential = false;
-  }else{
-    document.getElementById("password-error").textContent = "";
-  }
-
-  if(!validCredential){
-    return;
-  }
-
-  const url = signinPage ? "/api/login" : "/api/register";
-  const res = await fetch(url, {
-    method: "POST",
-    headers: {"Content-Type": "application/json"},
-    body: JSON.stringify({email, password})
+    if(signinPage){
+      $("#form-title").text("Sign-In");
+      $("#signin-button").text("Sign-In");
+      $("#toggle-form").text("Don't have an account? Create Account");
+    } else {
+      $("#form-title").text("Create Account");
+      $("#signin-button").text("Create Account");
+      $("#toggle-form").text("Have an account? Sign-In");
+    }
   });
 
-  const data = await res.json();
+  $("#signin-button").click(async function () {
+    const email = $("#email").val().trim();
+    const password = $("#password").val().trim();
 
-  if(data.error){
-    alert(data.error);
-    return;
-  }
+    let validCredential = true;
 
-  localStorage.setItem("user", JSON.stringify(data.user));
-  loadAccount();
-};
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+      $("#email-error").text("Invalid email");
+      validCredential = false;
+    }else{
+      $("#email-error").text("");
+    }
+
+    if(password.length < 8){
+      $("#password-error").text("Password must be at least 8 characters");
+      validCredential = false;
+    }else{
+      $("#password-error").text("");
+    }
+
+    if(!validCredential){
+      return;
+    }
+
+    const url = signinPage ? "/api/login" : "/api/register";
+    
+    const data = await $.ajax({
+        url: url,
+        method: "POST",
+        contentType: "application/json",
+        data: JSON.stringify({email, password})
+      });
+
+
+    if(data.error){
+      alert(data.error);
+      return;
+    }
+
+    localStorage.setItem("user", JSON.stringify(data.user));
+    loadAccount();
+  });
+});
 
 function loadAccount(){
   const user = JSON.parse(localStorage.getItem("user"));
@@ -117,23 +120,15 @@ function adminTabs(email){
 
 
   function resetTabs(){
-    ordersTab.classList.remove("active");
-    allOrdersTab.classList.remove("active");
-    salesTrendTab.classList.remove("active");
-    productSalesTab.classList.remove("active");
-    genderSalesTab.classList.remove("active");
-
-    ordersDiv.style.display = "none";
-    trendChart.style.display = "none";
-    productChart.style.display = "none";
-    genderChart.style.display = "none";
+    $("#orders-tab, #all-orders-tab, #sales-trend-tab, #product-sales-tab, #gender-sales-tab").removeClass("active");
+    $("#orders, #trend-chart, #product-chart, #gender-chart").hide();
 
   }
 
   ordersTab.addEventListener("click", () => {
     resetTabs();
     ordersTab.classList.add("active");
-    ordersDiv.style.display = "block";
+    $("#orders").show();
     title.textContent = "Orders";
     getOrders(email);
   });
@@ -141,7 +136,7 @@ function adminTabs(email){
   allOrdersTab.addEventListener("click", () => {
     resetTabs();
     allOrdersTab.classList.add("active");
-    ordersDiv.style.display = "block";
+    $("#orders").show();
     title.textContent = "All Orders";
     getAllOrders();
   });
@@ -149,7 +144,7 @@ function adminTabs(email){
   salesTrendTab.addEventListener("click", () => {
     resetTabs();
     salesTrendTab.classList.add("active");
-    trendChart.style.display = "block";
+    $("#trend-chart").show();
     title.textContent = "Sales Trend";
     salesTrendChart();
   });
@@ -157,7 +152,7 @@ function adminTabs(email){
   productSalesTab.addEventListener("click", () => {
     resetTabs();
     productSalesTab.classList.add("active");
-    productChart.style.display = "block";
+    $("#product-chart").show();
     title.textContent = "Product Sales";
     productSalesChart();
   });
@@ -165,7 +160,7 @@ function adminTabs(email){
   genderSalesTab.addEventListener("click", () => {
     resetTabs();
     genderSalesTab.classList.add("active");
-    genderChart.style.display = "block";
+    $("#gender-chart").show();
     title.textContent = "Gender Sales";
     genderSalesChart();
   });
@@ -215,9 +210,8 @@ function loadOrders(orderList, admin = false){
       </div>
     `;
 
-    div.addEventListener("click", () => {
-      const info = div.querySelector(".order-info");
-      info.style.display = info.style.display === "none" ? "block" : "none";
+    $(div).click(function () {
+      $(this).find(".order-info").slideToggle(200);
     });
 
     orders.appendChild(div);
