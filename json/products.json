@@ -1,68 +1,116 @@
 [
-    {
-        "id": 1,
-        "name": "Blue Plaid Suit",
-        "gender": "mens",
-        "category": "jackets",
-        "image": "../photos/menplaidsuitbg.png",
-        "images": ["../photos/menplaidsuitbg.png", "../photos/menplaidsuit2.png", "../photos/menplaidsuit3.png"],
-        "sizes": ["M", "L", "XL"],
-        "price": 200.00,
-        "colour": "blue",
-        "description": "Elevate your character with this unique, yet modern blue suit covered in a stylish plaid pattern. ",
-        "rating": 7
-    },
-    {
-        "id": 2,
-        "name": "Classic Black-Tie Suit",
-        "gender": "mens",
-        "category": "jackets",
-        "image": "../photos/menclassicblacktiesuit.png",
-        "images": ["../photos/menclassicblacktiesuit.png", "../photos/menclassicblacktiesuit2.png", "../photos/menclassicblacktiesuit3.png"],
-        "sizes": ["S", "M", "L", "XL"],
-        "price": 250.00,
-        "colour": "black",
-        "description": "Experience a daily professional lifestyle with this timeless black suit paired with a gleaming black tie. Made from premium wool and cashmere to provide comfort for a breathable feel, and suitability for daily wear.",
-        "rating": 9
-    },
-
-    {
-        "id": 3,
-        "name": "Classic White Button-Down Dress Shirt",
-        "gender": "mens",
-        "category": "shirts",
-        "image": "../photos/menclassicwhitedressshirt.png",
-        "images": ["../photos/menclassicwhitedressshirt.png", "../photos/menclassicwhitedressshirt2.png", "../photos/menclassicwhitedressshirt3.png"],
-        "sizes": ["S", "M", "L", "XL"],
-        "price": 60.00,
-        "colour": "white",
-        "description": "Description"
-
-    },
-    {
-        "id": 4,
-        "name": "Classic Formal Black Pants",
-        "gender": "mens",
-        "category": "pants",
-        "image": "../photos/menclassicformalblackpants.png",
-        "images": ["../photos/menclassicformalblackpants.png", "../photos/menclassicformalblackpants2.png", "../photos/menclassicformalblackpants3.png"],
-        "sizes": ["S", "M", "L", "XL"],
-        "price": 80.00,
-        "colour": "black",
-        "description": "Description"
-
-    },
-    {
-        "id": 5,
-        "name": "Black Leather Shoes",
-        "gender": "mens",
-        "category": "shoes",
-        "image": "../photos/menblackdressshoes.png",
-        "images": ["../photos/menblackdressshoes.png", "../photos/menblackdressshoes2.png", "../photos/menblackdressshoes3.png"],
-        "sizes": ["S", "M", "L", "XL"],
-        "price": 140.00,
-        "colour": "black",
-        "description": "Description"
-
-    }
+  {
+    "id": 1,
+    "name": "Blue Plaid Suit",
+    "gender": "mens",
+    "category": "jackets",
+    "image": "../photos/menplaidsuitbg.png",
+    "images": [
+      "../photos/menplaidsuitbg.png",
+      "../photos/menplaidsuit2.png",
+      "../photos/menplaidsuit3.png"
+    ],
+    "sizes": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "price": 200,
+    "colour": "blue",
+    "description": "Elevate your character with this unique, yet modern blue suit covered in a stylish plaid pattern. ",
+    "rating": 0,
+    "ratingCount": 0
+  },
+  {
+    "id": 2,
+    "name": "Classic Black-Tie Suit",
+    "gender": "mens",
+    "category": "jackets",
+    "image": "../photos/menclassicblacktiesuit.png",
+    "images": [
+      "../photos/menclassicblacktiesuit.png",
+      "../photos/menclassicblacktiesuit2.png",
+      "../photos/menclassicblacktiesuit3.png"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "price": 250,
+    "colour": "black",
+    "description": "Experience a daily professional lifestyle with this timeless black suit paired with a gleaming black tie. Made from premium wool and cashmere to provide comfort for a breathable feel, and suitability for daily wear.",
+    "rating": 9,
+    "ratingCount": 13
+  },
+  {
+    "id": 3,
+    "name": "Classic White Button-Down Dress Shirt",
+    "gender": "mens",
+    "category": "shirts",
+    "image": "../photos/menclassicwhitedressshirt.png",
+    "images": [
+      "../photos/menclassicwhitedressshirt.png",
+      "../photos/menclassicwhitedressshirt2.png",
+      "../photos/menclassicwhitedressshirt3.png"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "price": 60,
+    "colour": "white",
+    "description": "Description",
+    "rating": 5,
+    "ratingCount": 25
+  },
+  {
+    "id": 4,
+    "name": "Classic Formal Black Pants",
+    "gender": "mens",
+    "category": "pants",
+    "image": "../photos/menclassicformalblackpants.png",
+    "images": [
+      "../photos/menclassicformalblackpants.png",
+      "../photos/menclassicformalblackpants2.png",
+      "../photos/menclassicformalblackpants3.png"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "price": 80,
+    "colour": "black",
+    "description": "Description",
+    "rating": 6,
+    "ratingCount": 1
+  },
+  {
+    "id": 5,
+    "name": "Black Leather Shoes",
+    "gender": "mens",
+    "category": "shoes",
+    "image": "../photos/menblackdressshoes.png",
+    "images": [
+      "../photos/menblackdressshoes.png",
+      "../photos/menblackdressshoes2.png",
+      "../photos/menblackdressshoes3.png"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "price": 140,
+    "colour": "black",
+    "description": "Description",
+    "rating": 4,
+    "ratingCount": 84
+  }
 ]

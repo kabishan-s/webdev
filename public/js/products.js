@@ -108,7 +108,7 @@ createApp({
     this.products = await load.json();
     for (let i = 0; i < this.products.length; ++i) {
       this.products[i].foo = 12;
-      this.products[i].ratingText = getRatingFromProduct(this.products[i]);
+      this.products[i].ratingText = getRatingFromProduct(this.products[i], true);
     }
   }
 }).mount('#app')

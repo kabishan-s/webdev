@@ -19,6 +19,11 @@ function getProducts() {
   return JSON.parse(data);
 }
 
+function updateProducts(products){
+  const file = path.join(__dirname, "json", "products.json");
+  fs.writeFileSync(file, JSON.stringify(products, null, 2));
+}
+
 app.get("/api/products", (req, res) =>{
   res.json(getProducts());
 });
@@ -236,6 +241,29 @@ app.get("/api/sales/gender", (req, res) =>{
   const result = Object.entries(genderSales).map(([gender, count]) =>({gender, count}));
 
   res.json(result);
+});
+
+app.post("/api/products/rate", (req, res) => {
+  const {email, productId, rating} = req.body;
+
+  const users = getUsers();
+  const userIndex = users.findIndex(u => u.email === email);
+
+  if (userIndex === -1){
+    return res.status(404).json({error: "User not found"});
+  }
+
+  let products = getProducts();
+  let product = products.find(product => product.id == productId);
+  if(!product){
+    return res.status(404).json({ error: "Product not found" });
+  }
+
+  product.rating = (product.ratingCount * product.rating + rating) / (product.ratingCount + 1);
+  product.ratingCount += 1;
+
+  updateProducts(products);
+  res.json(product);
 });
 
 app.use((req, res) =>{

@@ -11,7 +11,7 @@ async function loadProduct() {
   document.getElementById("product-desc").textContent = product.description;
   document.getElementById("product-desc").textContent = product.description;
 
-  document.getElementById("product-rating").textContent = getRatingFromProduct(product);
+  document.getElementById("product-rating").innerHTML = getRatingFromProduct(product, true, "rating-star", `((value) => onClickRating(value, ${product.id}))`);
 
   const mainImg = document.getElementById("product-image");
   const images = product.images || [product.image];
@@ -92,6 +92,20 @@ async function loadProduct() {
     await upadteWithServer(user.email, cart);
     alert("Added to cart");
   };
+}
+
+async function onClickRating(value, productId) {
+  let user = JSON.parse(localStorage.getItem("user"));
+  await fetch('/api/products/rate', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        email: user.email,
+        productId: productId,
+        rating: value
+      })
+    });
+  loadProduct();
 }
 
 loadProduct();

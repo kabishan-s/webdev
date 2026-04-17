@@ -107,4 +107,13 @@
     font-family: "Luxurious Roman", serif;
 }
 
+#product-rating {
+    font-size: x-large;
+}
+
+.rating-star:hover {
+    color:rgb(49, 109, 159);
+    cursor: pointer;
+}
+
 
