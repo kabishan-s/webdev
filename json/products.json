@@ -18,7 +18,7 @@
     "price": 200,
     "colour": "blue",
     "description": "Elevate your character with this unique, yet modern blue suit covered in a stylish plaid pattern. ",
-    "rating": 4,
+    "rating": 7,
     "ratingCount": 2
   },
   {
@@ -175,5 +175,71 @@
     "description": "Very light and breathable.",
     "rating": 8,
     "ratingCount": 3
+  },
+  {
+    "id": 9,
+    "name": "Printed Cuff Blazer",
+    "gender": "womens",
+    "category": "jackets",
+    "image": "../photos/printedcuffblazer.jpg",
+    "images": [
+      "../photos/printedcuffblazer.jpg",
+      "../photos/printedcuffblazer2.jpg",
+      "../photos/printedcuffblazer3.jpg"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "price": 340,
+    "colour": "black",
+    "description": "Give us the money.",
+    "rating": 7,
+    "ratingCount": 2
+  },
+  {
+    "id": 10,
+    "name": "Pink Dress Shirt",
+    "gender": "mens",
+    "category": "shirts",
+    "image": "../photos/pinkshirt.webp",
+    "images": [
+      "../photos/pinkshirt.webp",
+      "../photos/pinkshirt2.webp",
+      "../photos/pinkshirt3.webp"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "price": 78,
+    "colour": "pink",
+    "description": "Made from premium cotton.",
+    "rating": 0,
+    "ratingCount": 0
+  },
+  {
+    "id": 11,
+    "name": "Leather Bomber Jacket",
+    "gender": "womens",
+    "category": "jackets",
+    "image": "../photos/bomberjacket.jpg",
+    "images": [
+      "../photos/bomberjacket.jpg",
+      "../photos/bomberjacket2.jpg",
+      "../photos/bomberjacket3.jpg"
+    ],
+    "sizes": [
+      "L",
+      "XL"
+    ],
+    "price": 450,
+    "colour": "black",
+    "description": "Awesome bomber jacket.",
+    "rating": 10,
+    "ratingCount": 1
   }
 ]
