@@ -8,7 +8,7 @@ createApp({
         gender: '',
         category: '',
         price: '',
-        colour: ''
+        colour: '',
       },
       genderFilterOpen: false,
       categoryFilterOpen: false,
@@ -97,7 +97,11 @@ createApp({
       this.filters.price = params.get('price');
       this.priceFilterOpen = true;
     }
-    const load = await fetch('/api/products')
-    this.products = await load.json()
+    const load = await fetch('/api/products');
+    this.products = await load.json();
+    for (let i = 0; i < this.products.length; ++i) {
+      this.products[i].foo = 12;
+      this.products[i].ratingText = getRatingFromProduct(this.products[i]);
+    }
   }
 }).mount('#app')

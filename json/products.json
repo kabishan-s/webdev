@@ -9,7 +9,8 @@
         "sizes": ["M", "L", "XL"],
         "price": 200.00,
         "colour": "blue",
-        "description": "Elevate your character with this unique, yet modern blue suit covered in a stylish plaid pattern. "
+        "description": "Elevate your character with this unique, yet modern blue suit covered in a stylish plaid pattern. ",
+        "rating": 7
     },
     {
         "id": 2,
@@ -21,7 +22,8 @@
         "sizes": ["S", "M", "L", "XL"],
         "price": 250.00,
         "colour": "black",
-        "description": "Experience a daily professional lifestyle with this timeless black suit paired with a gleaming black tie. Made from premium wool and cashmere to provide comfort for a breathable feel, and suitability for daily wear."
+        "description": "Experience a daily professional lifestyle with this timeless black suit paired with a gleaming black tie. Made from premium wool and cashmere to provide comfort for a breathable feel, and suitability for daily wear.",
+        "rating": 9
     },
 
     {
