@@ -18,8 +18,8 @@
     "price": 200,
     "colour": "blue",
     "description": "Elevate your character with this unique, yet modern blue suit covered in a stylish plaid pattern. ",
-    "rating": 0,
-    "ratingCount": 0
+    "rating": 4,
+    "ratingCount": 2
   },
   {
     "id": 2,
@@ -42,7 +42,7 @@
     "colour": "black",
     "description": "Experience a daily professional lifestyle with this timeless black suit paired with a gleaming black tie. Made from premium wool and cashmere to provide comfort for a breathable feel, and suitability for daily wear.",
     "rating": 9,
-    "ratingCount": 13
+    "ratingCount": 3
   },
   {
     "id": 3,
@@ -65,7 +65,7 @@
     "colour": "white",
     "description": "Description",
     "rating": 5,
-    "ratingCount": 25
+    "ratingCount": 1
   },
   {
     "id": 4,
@@ -87,7 +87,7 @@
     "price": 80,
     "colour": "black",
     "description": "Description",
-    "rating": 6,
+    "rating": 5,
     "ratingCount": 1
   },
   {
@@ -111,6 +111,69 @@
     "colour": "black",
     "description": "Description",
     "rating": 4,
-    "ratingCount": 84
+    "ratingCount": 1
+  },
+  {
+    "id": 6,
+    "name": "Beige Leather Shoes",
+    "gender": "womens",
+    "category": "shoes",
+    "image": "../photos/womensbeigeshoes.jpg",
+    "images": [
+      "../photos/womensbeigeshoes.jpg",
+      "../photos/womensbeigeshoes2.jpg"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "price": 250,
+    "colour": "beige",
+    "description": "Great pair of shoes for wearing. Very comfortable.",
+    "rating": 5,
+    "ratingCount": 2
+  },
+  {
+    "id": 7,
+    "name": "Pink High-Waist Trousers",
+    "gender": "womens",
+    "category": "pants",
+    "image": "../photos/womenpants.png",
+    "images": [
+      "../photos/womenpants.png",
+      "../photos/womenpants2.jpg"
+    ],
+    "sizes": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "price": 115,
+    "colour": "pink",
+    "description": "Excellent pants for somebody.",
+    "rating": 2,
+    "ratingCount": 3
+  },
+  {
+    "id": 8,
+    "name": "Light Cotton-Blend Collared Shirt",
+    "gender": "womens",
+    "category": "shirts",
+    "image": "../photos/womenshirt.png",
+    "images": [
+      "../photos/womenshirt.png",
+      "../photos/womenshirt2.avif"
+    ],
+    "sizes": [
+      "M",
+      "L"
+    ],
+    "price": 85,
+    "colour": "white",
+    "description": "Very light and breathable.",
+    "rating": 8,
+    "ratingCount": 3
   }
 ]
