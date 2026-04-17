@@ -124,6 +124,19 @@ app.post("/api/cart/update", (req, res) =>{
   res.json({success: true, cart});
 });
 
+app.post("/api/favourites/update", (req, res) =>{
+  const {email, favourites} = req.body;
+  let users = getUsers();
+  const userIndex = users.findIndex(u => u.email === email);
+  
+  if(userIndex === -1){
+    return res.status(404).json({error: "User not found"});
+  }
+  
+  users[userIndex].favourites = favourites;
+  addUsers(users);
+  res.json({success: true, favourites});
+});
 
 app.get("/api/cart/:email", (req, res) =>{
   const users = getUsers();
@@ -274,5 +287,5 @@ app.set('port', process.env.PORT || 3000)
 
 app.listen(app.get('port'), () => {
   console.log(`Server is running on port ${app.get('port')}`);
-  open(`http://localhost:${app.get('port')}/pages/homepage.html`);
+  // open(`http://localhost:${app.get('port')}/pages/homepage.html`);
 })

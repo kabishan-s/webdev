@@ -42,6 +42,25 @@ async function loadProduct() {
         document.querySelectorAll(".size-option").forEach(s => s.classList.remove("selected"));
         div.classList.add("selected");
         selectedSize = size;
+        
+        let user = JSON.parse(localStorage.getItem("user"));
+        if(user) {
+          let favourites = user.favourites || [];
+          const inFavourites = favourites.find(i => i.id == product.id && i.size === selectedSize);
+
+          if(inFavourites != undefined) {
+            favButton = $(".fav");
+
+            favButton.toggleClass("fav");
+            favButton.toggleClass("favourited");
+          }
+          else {
+            favButton = $(".favourited");
+
+            favButton.toggleClass("favourited");
+            favButton.toggleClass("fav");
+          }
+        }
       };
       sizes.appendChild(div);
     });
@@ -52,6 +71,15 @@ async function loadProduct() {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({email, cart})
+    });
+    return response.json();
+  }
+
+  async function updateFavourites(email, favourites){
+    const response = await fetch('/api/favourites/update', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({email, favourites})
     });
     return response.json();
   }
@@ -92,6 +120,66 @@ async function loadProduct() {
     await upadteWithServer(user.email, cart);
     alert("Added to cart");
   };
+
+  $(document).on("click", ".fav", async function() {
+    let user = JSON.parse(localStorage.getItem("user"));
+    if(!user){
+      alert("Sign-in before favouriting items");
+      window.location.href = "account.html";
+      return;
+    }
+    if(!selectedSize){
+      return alert("Select a size first.");
+    }
+
+    let favourites = user.favourites || [];
+    const inFavourites = favourites.find(i => i.id == product.id && i.size === selectedSize);
+
+    if(inFavourites === undefined) {
+      favourites.push({
+      id: product.id,
+      name: product.name,
+      gender: product.gender,
+      category: product.category,
+      price: product.price,
+      colour: product.colour,
+      image: product.image,
+      description: product.description,
+      size: selectedSize,
+      quantity: 1,
+      });
+    }
+    user.favourites = favourites;
+    localStorage.setItem("user", JSON.stringify(user));
+    await updateFavourites(user.email, favourites);
+
+    $(this).toggleClass("fav");
+    $(this).toggleClass("favourited");
+  })
+
+  $(document).on("click", ".favourited", async function() {
+    let user = JSON.parse(localStorage.getItem("user"));
+    if(!user){
+      alert("Sign-in before favouriting items");
+      window.location.href = "account.html";
+      return;
+    }
+    if(!selectedSize){
+      return alert("Select a size first.");
+    }
+
+    let favourites = user.favourites || [];
+    const indexInFavourites = favourites.findIndex(i => i.id == product.id && i.size === selectedSize);
+
+    favourites.splice(indexInFavourites, 1);
+
+    user.favourites = favourites;
+    localStorage.setItem("user", JSON.stringify(user));
+    await updateFavourites(user.email, favourites);
+
+    $(this).toggleClass("favourited");
+    $(this).toggleClass("fav");
+  })
 }
 
 async function onClickRating(value, productId) {

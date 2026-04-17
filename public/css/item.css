@@ -90,6 +90,43 @@
 
 }
 
+.fav{
+    display: inline-block;
+    /* background-color: rgb(166, 166, 166); */
+    font-weight: 500;
+    /* color: white; */
+    border-radius: 40px;
+    padding: 8px 14px;
+    margin-top: 10px;
+    box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-family: "Lora", serif;
+}
+
+.fav:hover{
+    background: linear-gradient(120deg, rgb(247, 51, 37), rgb(217, 82, 82));
+    color: white;
+}
+
+.favourited{
+    display: inline-block;
+    background: linear-gradient(120deg, rgb(245, 16, 0), rgb(217, 82, 82));
+    font-weight: 500;
+    color: white;
+    border-radius: 40px;
+    padding: 8px 14px;
+    margin-top: 10px;
+    box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-family: "Lora", serif;
+}
+
+.favourited:hover{
+    background: linear-gradient(120deg, rgb(247, 51, 37), rgb(252, 90, 78));
+}
+
 #product-name{
     font-family: "Luxurious Roman", serif;
     font-size: 25px;
