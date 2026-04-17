@@ -128,3 +128,7 @@ a, .product, .filters, .filter-options div {
 .filter-options div.active{
     font-weight: bold;
 }
+
+.search-bar {
+    width: 100%;
+}

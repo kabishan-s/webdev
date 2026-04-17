@@ -11,13 +11,13 @@ createApp({
         colour: '',
         rating: 0,
         favourite: false,
+        search: '',
       },
       genderFilterOpen: false,
       categoryFilterOpen: false,
       priceFilterOpen: false,
       colourFilterOpen: false,
-      ratingFilterOpen: false,
-      favouriteFilterOpen: false
+      ratingFilterOpen: false
     }
   },
 
@@ -50,9 +50,6 @@ createApp({
         if (this.filters.rating !== 0 && (!('rating' in product) || product.rating < this.filters.rating)) {
           return false;
         }
-        if(this.filters.favourite === true && !product.isFavourite) {
-          return false;
-        }
 
         return true;
       })
@@ -75,6 +72,10 @@ createApp({
       }
       if(this.filters.price){
         text.push("$" + this.filters.price);
+      }
+
+      if (this.filters.search !== "") {
+        text.push(`"${this.filters.search}"`);
       }
 
       if(text.length){
