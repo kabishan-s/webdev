@@ -10,12 +10,14 @@ createApp({
         price: '',
         colour: '',
         rating: 0,
+        favourite: false,
       },
       genderFilterOpen: false,
       categoryFilterOpen: false,
       priceFilterOpen: false,
       colourFilterOpen: false,
-      ratingFilterOpen: false
+      ratingFilterOpen: false,
+      favouriteFilterOpen: false
     }
   },
 
@@ -45,8 +47,10 @@ createApp({
             return false;
           }
         }
-
         if (this.filters.rating !== 0 && (!('rating' in product) || product.rating < this.filters.rating)) {
+          return false;
+        }
+        if(this.filters.favourite === true && !product.isFavourite) {
           return false;
         }
 
@@ -109,6 +113,13 @@ createApp({
     for (let i = 0; i < this.products.length; ++i) {
       this.products[i].foo = 12;
       this.products[i].ratingText = getRatingFromProduct(this.products[i], true);
+    }
+
+    let user = JSON.parse(localStorage.getItem("user"));
+    let favourites = user.favourites || [];
+    for (let i = 0; i < this.products.length; ++i) {
+      const isFavourite = favourites.some(j => j.id == this.products[i].id);
+      this.products[i].isFavourite = isFavourite;
     }
   }
 }).mount('#app')

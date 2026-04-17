@@ -123,6 +123,14 @@
               <div @click="setFilter('rating',8)" :class="{active: filters.rating === 8}">★★★★☆+</div>
             </div>
           </div>
+
+          <div class="filter-group">
+            <div class="filter-title" @click="toggle('favouriteFilterOpen')">Favourited</div>
+            <div class="filter-options" v-show="favouriteFilterOpen">
+              <div @click="setFilter('favourite', false)"  :class="{active: filters.favourite === false}">All</div>
+              <div @click="setFilter('favourite', true)" :class="{active: filters.favourite === true}">Favourites Only</div>
+            </div>
+          </div>
         </div>
       </div>
 

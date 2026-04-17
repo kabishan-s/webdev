@@ -102,7 +102,20 @@
         "quantity": 3
       }
     ],
-    "favourites": []
+    "favourites": [
+      {
+        "id": 1,
+        "name": "Blue Plaid Suit",
+        "gender": "mens",
+        "category": "jackets",
+        "price": 200,
+        "colour": "blue",
+        "image": "../photos/menplaidsuitbg.png",
+        "description": "Elevate your character with this unique, yet modern blue suit covered in a stylish plaid pattern. ",
+        "size": "M",
+        "quantity": 1
+      }
+    ]
   },
   {
     "email": "john2@example.com",
