@@ -17,7 +17,8 @@ createApp({
       categoryFilterOpen: false,
       priceFilterOpen: false,
       colourFilterOpen: false,
-      ratingFilterOpen: false
+      ratingFilterOpen: false,
+      favouriteFilterOpen: false,
     }
   },
 
@@ -48,6 +49,13 @@ createApp({
           }
         }
         if (this.filters.rating !== 0 && (!('rating' in product) || product.rating < this.filters.rating)) {
+          return false;
+        }
+        if(this.filters.favourite === true && !product.isFavourite) {
+          return false;
+        }
+
+        if (!(product.name.toLowerCase().includes(this.filters.search.toLowerCase()))) {
           return false;
         }
 
