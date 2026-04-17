@@ -110,6 +110,17 @@
               <div @click="setFilter('price','300+')" :class="{active: filters.price === '300+'}">$300+</div>
             </div>
           </div>
+
+          <div class="filter-group">
+            <div class="filter-title" @click="toggle('ratingFilterOpen')">Rating</div>
+            <div class="filter-options" v-show="ratingFilterOpen">
+              <div @click="setFilter('rating',0)"  :class="{active: filters.rating === 0}">All</div>
+              <div @click="setFilter('rating',2)" :class="{active: filters.rating === 2}">★☆☆☆☆+</div>
+              <div @click="setFilter('rating',4)" :class="{active: filters.rating === 4}">★★☆☆☆+</div>
+              <div @click="setFilter('rating',6)" :class="{active: filters.rating === 6}">★★★☆☆+</div>
+              <div @click="setFilter('rating',8)" :class="{active: filters.rating === 8}">★★★★☆+</div>
+            </div>
+          </div>
         </div>
       </div>
 

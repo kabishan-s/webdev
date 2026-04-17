@@ -9,11 +9,13 @@ createApp({
         category: '',
         price: '',
         colour: '',
+        rating: 0,
       },
       genderFilterOpen: false,
       categoryFilterOpen: false,
       priceFilterOpen: false,
-      colourFilterOpen: false
+      colourFilterOpen: false,
+      ratingFilterOpen: false
     }
   },
 
@@ -43,6 +45,11 @@ createApp({
             return false;
           }
         }
+
+        if (this.filters.rating !== 0 && (!('rating' in product) || product.rating < this.filters.rating)) {
+          return false;
+        }
+
         return true;
       })
     },
