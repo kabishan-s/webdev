@@ -338,5 +338,12 @@
         "total": 293.8
       }
     ]
+  },
+  {
+    "email": "asdf@asdf.com",
+    "password": "asdfasdf",
+    "type": "user",
+    "cart": [],
+    "orders": []
   }
 ]

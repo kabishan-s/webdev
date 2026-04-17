@@ -1,0 +1,50 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    font-family: "Lora", serif;
+}
+
+
+.navbar{
+    background: linear-gradient(150deg, rgb(34, 72, 104), rgb(163, 179, 233));
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-item:hover{
+    background-color: rgba(250,250,250,0.10) !important;
+    color: white !important;
+}
+
+.navbar-link:hover{
+    background-color: rgba(250,250,250,0.10) !important;
+    color: white !important;
+}
+
+.dropdown-item:hover {
+    color: rgb(197, 197, 197) !important;
+}
+
+.navbar-section{
+    font-weight: bold;
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    color: black;
+    cursor: default;
+}
+
+.navbar-section:hover{
+    background: transparent !important;
+    color: black !important;
+}
+
+.navbar-divider{
+    background: black;
+}
+
