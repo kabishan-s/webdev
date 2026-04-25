@@ -21,6 +21,15 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 
+    <script>
+      $(document).ready(function () {
+          $(".navbar-burger").click(function () {
+              $(".navbar-burger").toggleClass("is-active");
+              $(".navbar-menu").toggleClass("is-active");
+          });
+      });
+    </script>
+
   </head>
 
   <body>
@@ -50,7 +59,7 @@
               <a class="navbar-item dropdown-item" href="products.html?gender=mens&category=shirts">Shirts</a>
               <a class="navbar-item dropdown-item" href="products.html?gender=mens&category=jackets">Jackets</a>
               <a class="navbar-item dropdown-item" href="products.html?gender=mens&category=pants">Pants</a>
-              <a class="navbar-item" dropdown-item href="products.html?gender=mens&category=shoes">Shoes</a>
+              <a class="navbar-item dropdown-item" href="products.html?gender=mens&category=shoes">Shoes</a>
               <hr class="navbar-divider">
               <p class="navbar-item navbar-section">Women</p>
               <a class="navbar-item dropdown-item" href="products.html?gender=womens&category=shirts">Shirts</a>
@@ -75,22 +84,30 @@
         <div class="cart">
 
           <div class="cart-items">
-            <div v-for="(item, index) in cart" :key="index" class="cart-item">
-              <img :src="item.image">
-              <div class="item-info">
-                <div class="item-header">
-                  <div class="item-name">{{item.name}}</div>
-                  <div class="item-price">${{(item.price * item.quantity).toFixed(2)}}</div>
-                </div>
-                <div>{{item.description }}</div>
-                <div>Size: {{item.size}}</div>
-                <div class="quantity">
-                  <button @click="changeQuantity(index, -1)">-</button>
-                  <span>{{item.quantity}}</span>
-                  <button @click="changeQuantity(index, 1)">+</button>
+            <template v-if="user && cart.length">
+              <div v-for="(item, index) in cart" :key="index" class="cart-item">
+                <img :src="item.image">
+                <div class="item-info">
+                  <div class="item-header">
+                    <div class="item-name">{{item.name}}</div>
+                    <div class="item-price">${{(item.price * item.quantity).toFixed(2)}}</div>
+                  </div>
+                  <div>{{item.description }}</div>
+                  <div>Size: {{item.size}}</div>
+                  <div class="quantity">
+                    <button @click="changeQuantity(index, -1)">-</button>
+                    <span>{{item.quantity}}</span>
+                    <button @click="changeQuantity(index, 1)">+</button>
+                  </div>
                 </div>
               </div>
-            </div>
+            </template>
+
+            <template v-else>
+              <div class="empty-cart">
+                Add items to your cart
+              </div>
+            </template>
           </div>
 
           <div class="summary">
@@ -102,7 +119,6 @@
           </div>
         </div>
       </div>
-      <script src="../js/common.js"></script>
       <script src="../js/cart.js"></script>
   </body>
 </html>

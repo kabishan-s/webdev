@@ -1,12 +1,9 @@
-
-
 body{
     background: rgb(209, 208, 238);
     color: rgb(0, 0, 0);
     min-height: 100vh;
     background: linear-gradient(180deg, rgb(221, 232, 252), rgb(201, 218, 247));
 }
-
 
 .home{
     display: flex;

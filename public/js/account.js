@@ -1,16 +1,18 @@
+const socket = io();
 let signinPage = true;
 
 
 $(document).ready(function () {
+  // Sign-in and Create account form
   $("#toggle-form").click(function () {
     signinPage = !signinPage;
 
     if(signinPage){
-      $("#form-title").text("Sign-In");
+      $("#form-title").html("<strong>Sign-In</strong>");
       $("#signin-button").text("Sign-In");
       $("#toggle-form").text("Don't have an account? Create Account");
     } else {
-      $("#form-title").text("Create Account");
+      $("#form-title").html("<strong>Create Account</strong>");
       $("#signin-button").text("Create Account");
       $("#toggle-form").text("Have an account? Sign-In");
     }
@@ -42,6 +44,7 @@ $(document).ready(function () {
 
     const url = signinPage ? "/api/login" : "/api/register";
     
+    // Saving accounts
     const data = await $.ajax({
         url: url,
         method: "POST",
@@ -60,7 +63,9 @@ $(document).ready(function () {
   });
 });
 
+// Loading Accounts
 function loadAccount(){
+  // Checks if users are custoemrs or admin
   const user = JSON.parse(localStorage.getItem("user"));
   const adminUser = user && user.type === "admin";
   if(!user){
@@ -70,6 +75,7 @@ function loadAccount(){
   document.getElementById("account-overview").style.display = "block";
   document.getElementById("user-email").textContent = user.email;
 
+  // Admin users see extra tabs for statistics
   if(adminUser){
     document.getElementById("order-tabs").style.display = "flex";
     adminTabs(user.email);
@@ -81,8 +87,26 @@ function loadAccount(){
     allOrdersTab.classList.remove("active");
     
     getOrders(user.email);
+
+    socket.on("newOrder", () =>{
+      const tab = document.querySelector(".active")?.id;
+      if(tab === "orders-tab"){
+        getAllOrders();
+      }else if(tab === "all-orders-tab"){
+        getAllOrders();
+      }
+      else if (tab === "sales-trend-tab"){
+        salesTrendChart();
+      }
+      else if(tab === "product-sales-tab"){
+        productSalesChart();
+      }
+      else if(tab === "gender-sales-tab"){
+        genderSalesChart();
+      }
+    });
   }else{
-  getOrders(user.email);
+    getOrders(user.email);
   }
 }
 
@@ -91,12 +115,14 @@ document.getElementById("signout-button").onclick = () =>{
   window.location.reload();
 };
 
+// For viewing orders
 async function getOrders(email){
   const response = await fetch(`/api/orders/${email}`);
   const data = await response.json();
   loadOrders(data.orders);
 }
 
+// For admin to view all orders
 async function getAllOrders(){
   const response = await fetch(`/api/orders`);
   const data = await response.json();
@@ -104,6 +130,7 @@ async function getAllOrders(){
 }
 
 
+// Sales Statistics tabs for admin
 function adminTabs(email){
   const ordersTab = document.getElementById("orders-tab");
   const allOrdersTab = document.getElementById("all-orders-tab");
@@ -168,7 +195,7 @@ function adminTabs(email){
 }
 
 
-
+// Displaying orders
 function loadOrders(orderList, admin = false){
   const orders = document.getElementById("orders");
   orders.innerHTML = "";
@@ -218,9 +245,10 @@ function loadOrders(orderList, admin = false){
   });
 }
 
-
+// Sales trend line chart
 async function salesTrendChart(){
   const stats = await fetch("/api/sales/trend").then(r => r.json());
+  stats.sort((a, b) => new Date(a.date) - new Date(b.date));
   const svg = d3.select("#trend-chart");
   svg.selectAll("*").remove();
 
@@ -262,6 +290,7 @@ async function salesTrendChart(){
     .style("font-size", "13px");
 }
 
+// Product type bar graph
 async function productSalesChart(){
   const stats = await fetch("/api/sales/products").then(r => r.json());
 
@@ -319,7 +348,7 @@ async function productSalesChart(){
 
 }
 
-
+// Gendr sales pi chart
 async function genderSalesChart(){
   const stats = await fetch("/api/sales/gender").then(r => r.json());
 

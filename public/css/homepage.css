@@ -4,11 +4,9 @@
 
 body{
     color: rgb(0, 0, 0);
-    font-family: "Lora", serif;
+    min-height: 100vh;
     background: linear-gradient(180deg, rgb(221, 232, 252), rgb(201, 218, 247));
 }
-
-
 
 .container{
     max-width: 100% !important;

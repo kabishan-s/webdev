@@ -22,6 +22,15 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 
+    <script>
+      $(document).ready(function () {
+          $(".navbar-burger").click(function () {
+              $(".navbar-burger").toggleClass("is-active");
+              $(".navbar-menu").toggleClass("is-active");
+          });
+      });
+    </script>
+
   </head>
 
   <body>
@@ -75,7 +84,7 @@
         <h1 class="account-title">Account</h1>
 
         <div class="section" id="authentication">
-          <h2 id="form-title">Sign-In</h2>
+          <h2 id="form-title"><strong>Sign-In</strong></h2>
 
           <div class="field">
             <label>Email</label>
@@ -120,7 +129,7 @@
         </div>
       </div>
     </div>
-  <script src="../js/common.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
   <script src="../js/account.js"></script>
   </body>
 </html>

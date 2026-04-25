@@ -3,6 +3,20 @@
     "email": "john@example.com",
     "password": "password",
     "type": "user",
+    "cart": [
+      {
+        "id": 1,
+        "name": "Blue Plaid Suit",
+        "gender": "mens",
+        "category": "jackets",
+        "price": 200,
+        "colour": "blue",
+        "image": "../photos/menplaidsuitbg.png",
+        "description": "Elevate your character with this unique, yet modern blue suit covered in a stylish plaid pattern. ",
+        "size": "XL",
+        "quantity": 2
+      }
+    ],
     "orders": [
       {
         "id": 1776375053292,
@@ -91,61 +105,13 @@
         "total": 1356
       }
     ],
-    "cart": [
-      {
-        "id": 1,
-        "name": "Blue Plaid Suit",
-        "price": 200,
-        "image": "../photos/menplaidsuitbg.png",
-        "description": "Elevate your character with this unique, yet modern blue suit covered in a stylish plaid pattern. ",
-        "size": "M",
-        "quantity": 3
-      }
-    ],
-    "favourites": [
-      {
-        "id": 1,
-        "name": "Blue Plaid Suit",
-        "gender": "mens",
-        "category": "jackets",
-        "price": 200,
-        "colour": "blue",
-        "image": "../photos/menplaidsuitbg.png",
-        "description": "Elevate your character with this unique, yet modern blue suit covered in a stylish plaid pattern. ",
-        "size": "M",
-        "quantity": 1
-      }
-    ]
+    "favourites": []
   },
   {
-    "email": "john2@example.com",
-    "password": "password2",
+    "email": "admin@example.com",
+    "password": "password",
     "type": "admin",
     "cart": [
-      {
-        "id": 1,
-        "name": "Blue Plaid Suit",
-        "gender": "mens",
-        "category": "jackets",
-        "price": 200,
-        "colour": "blue",
-        "image": "../photos/menplaidsuitbg.png",
-        "description": "Elevate your character with this unique, yet modern blue suit covered in a stylish plaid pattern. ",
-        "size": "XL",
-        "quantity": 4
-      },
-      {
-        "id": 1,
-        "name": "Blue Plaid Suit",
-        "gender": "mens",
-        "category": "jackets",
-        "price": 200,
-        "colour": "blue",
-        "image": "../photos/menplaidsuitbg.png",
-        "description": "Elevate your character with this unique, yet modern blue suit covered in a stylish plaid pattern. ",
-        "size": "L",
-        "quantity": 2
-      },
       {
         "id": 3,
         "name": "Classic White Button-Down Dress Shirt",
@@ -154,12 +120,131 @@
         "price": 60,
         "colour": "white",
         "image": "../photos/menclassicwhitedressshirt.png",
-        "description": "Description",
+        "description": "Timeless white button-down shirt, suitiable for any event.",
         "size": "XL",
-        "quantity": 2
+        "quantity": 1
       }
     ],
     "orders": [
+      {
+        "id": 1776457297051,
+        "date": "2026-04-17T20:21:37.051Z",
+        "items": [
+          {
+            "id": 11,
+            "name": "White Button-Up",
+            "gender": "womens",
+            "category": "shirts",
+            "price": 80,
+            "colour": "white",
+            "image": "../photos/womenwhitebuttonup.png",
+            "description": "A timeless piece made from 100% cotton, providing comfort, elegance, and style.",
+            "size": "L",
+            "quantity": 27
+          }
+        ],
+        "total": 2440.8
+      },
+      {
+        "id": 1776456339271,
+        "date": "2026-04-17T20:05:39.271Z",
+        "items": [
+          {
+            "id": 5,
+            "name": "Black Leather Shoes",
+            "gender": "mens",
+            "category": "shoes",
+            "price": 140,
+            "colour": "black",
+            "image": "../photos/menblackdressshoes.png",
+            "description": "Description",
+            "size": "XL",
+            "quantity": 10
+          }
+        ],
+        "total": 1582
+      },
+      {
+        "id": 1776456307720,
+        "date": "2026-04-17T20:05:07.720Z",
+        "items": [
+          {
+            "id": 5,
+            "name": "Black Leather Shoes",
+            "gender": "mens",
+            "category": "shoes",
+            "price": 140,
+            "colour": "black",
+            "image": "../photos/menblackdressshoes.png",
+            "description": "Description",
+            "size": "XL",
+            "quantity": 20
+          }
+        ],
+        "total": 3164
+      },
+      {
+        "id": 1776405463822,
+        "date": "2026-04-17T05:57:43.822Z",
+        "items": [
+          {
+            "id": 3,
+            "name": "Classic White Button-Down Dress Shirt",
+            "gender": "mens",
+            "category": "shirts",
+            "price": 60,
+            "colour": "white",
+            "image": "../photos/menclassicwhitedressshirt.png",
+            "description": "Description",
+            "size": "XL",
+            "quantity": 10
+          },
+          {
+            "id": 4,
+            "name": "Classic Formal Black Pants",
+            "gender": "mens",
+            "category": "pants",
+            "price": 80,
+            "colour": "black",
+            "image": "../photos/menclassicformalblackpants.png",
+            "description": "Description",
+            "size": "XL",
+            "quantity": 8
+          }
+        ],
+        "total": 1401.2
+      },
+      {
+        "id": 1776405142204,
+        "date": "2026-04-17T05:52:22.204Z",
+        "items": [
+          {
+            "id": 5,
+            "name": "Black Leather Shoes",
+            "gender": "mens",
+            "category": "shoes",
+            "price": 140,
+            "colour": "black",
+            "image": "../photos/menblackdressshoes.png",
+            "description": "Description",
+            "size": "XL",
+            "quantity": 10
+          },
+          {
+            "id": 4,
+            "name": "Classic Formal Black Pants",
+            "gender": "mens",
+            "category": "pants",
+            "price": 80,
+            "colour": "black",
+            "image": "../photos/menclassicformalblackpants.png",
+            "description": "Description",
+            "size": "XL",
+            "quantity": 4
+          }
+        ],
+        "total": 1943.6
+      },
       {
         "id": 1776302031386,
         "date": "2026-04-16T01:13:51.386Z",
@@ -215,6 +300,32 @@
         ],
         "total": 3254.4
       }
+    ],
+    "favourites": [
+      {
+        "id": 1,
+        "name": "Blue Plaid Suit",
+        "gender": "mens",
+        "category": "jackets",
+        "price": 200,
+        "colour": "blue",
+        "image": "../photos/menplaidsuitbg.png",
+        "description": "Elevate your character with this unique, yet modern blue suit covered in a stylish plaid pattern. ",
+        "size": "XL",
+        "quantity": 1
+      },
+      {
+        "id": 3,
+        "name": "Classic White Button-Down Dress Shirt",
+        "gender": "mens",
+        "category": "shirts",
+        "price": 60,
+        "colour": "white",
+        "image": "../photos/menclassicwhitedressshirt.png",
+        "description": "Timeless white button-down shirt, suitiable for any event.",
+        "size": "XL",
+        "quantity": 1
+      }
     ]
   },
   {
@@ -223,6 +334,73 @@
     "type": "user",
     "cart": [],
     "orders": [
+      {
+        "id": 1776454912975,
+        "date": "2026-04-17T19:41:52.975Z",
+        "items": [
+          {
+            "id": 2,
+            "name": "Classic Black-Tie Suit",
+            "gender": "mens",
+            "category": "jackets",
+            "price": 250,
+            "colour": "black",
+            "image": "../photos/menclassicblacktiesuit.png",
+            "description": "Experience a daily professional lifestyle with this timeless black suit paired with a gleaming black tie. Made from premium wool and cashmere to provide comfort for a breathable feel, and suitability for daily wear.",
+            "size": "XL",
+            "quantity": 5
+          },
+          {
+            "id": 2,
+            "name": "Classic Black-Tie Suit",
+            "gender": "mens",
+            "category": "jackets",
+            "price": 250,
+            "colour": "black",
+            "image": "../photos/menclassicblacktiesuit.png",
+            "description": "Experience a daily professional lifestyle with this timeless black suit paired with a gleaming black tie. Made from premium wool and cashmere to provide comfort for a breathable feel, and suitability for daily wear.",
+            "size": "M",
+            "quantity": 1
+          },
+          {
+            "id": 8,
+            "name": "Cashmere Jacket",
+            "gender": "mens",
+            "category": "jackets",
+            "price": 350,
+            "colour": "brown",
+            "image": "../photos/menbrowncashmerejacket.png",
+            "description": "This jacket is crafted from 100% cashmere to provide comfort, shine, and a sleek feel.",
+            "size": "L",
+            "quantity": 1
+          },
+          {
+            "id": 15,
+            "name": "White Half-Zip",
+            "gender": "mens",
+            "category": "jackets",
+            "price": 150,
+            "colour": "white",
+            "image": "../photos/menwhitehalfzip.png",
+            "description": "Classic wool stitched cream half-zip for style and comfort",
+            "size": "M",
+            "quantity": 2
+          },
+          {
+            "id": 13,
+            "name": "Blue Striped Shirt",
+            "gender": "mens",
+            "category": "shirts",
+            "price": 110,
+            "colour": "blue",
+            "image": "../photos/menbluestripedshirt.png",
+            "description": "Elegant striped pattern. Crafted fromm 100% wool for a premium feeling and durability.",
+            "size": "L",
+            "quantity": 1
+          }
+        ],
+        "total": 2553.8
+      },
       {
         "id": 1776330770130,
         "date": "2026-04-16T09:12:50.130Z",
@@ -318,6 +496,85 @@
     "cart": [],
     "orders": [
       {
+        "id": 1776454753638,
+        "date": "2026-04-17T19:39:13.638Z",
+        "items": [
+          {
+            "id": 11,
+            "name": "White Button-Up",
+            "gender": "womens",
+            "category": "shirts",
+            "price": 80,
+            "colour": "white",
+            "image": "../photos/womenwhitebuttonup.png",
+            "description": "A timeless piece made from 100% cotton, providing comfort, elegance, and style.",
+            "size": "XL",
+            "quantity": 4
+          },
+          {
+            "id": 6,
+            "name": "Blue Button-Up Shirt",
+            "gender": "womens",
+            "category": "shirts",
+            "price": 80,
+            "colour": "blue",
+            "image": "../photos/womenbluebuttonup.png",
+            "description": "Ocean blue colour for a relaxing outfit. Made from 100% cotton, providing comfort, elegance, and style.",
+            "size": "L",
+            "quantity": 4
+          },
+          {
+            "id": 8,
+            "name": "Cashmere Jacket",
+            "gender": "mens",
+            "category": "jackets",
+            "price": 350,
+            "colour": "brown",
+            "image": "../photos/menbrowncashmerejacket.png",
+            "description": "This jacket is crafted from 100% cashmere to provide comfort, shine, and a sleek feel.",
+            "size": "M",
+            "quantity": 2
+          },
+          {
+            "id": 12,
+            "name": "Leather Jacket",
+            "gender": "mens",
+            "category": "jackets",
+            "price": 350,
+            "colour": "black",
+            "image": "../photos/menblackleatherjacket.png",
+            "description": "This jacket is made from real premium leather for a sleek rigid look.",
+            "size": "M",
+            "quantity": 2
+          },
+          {
+            "id": 4,
+            "name": "Classic Formal Black Pants",
+            "gender": "mens",
+            "category": "pants",
+            "price": 80,
+            "colour": "black",
+            "image": "../photos/menclassicformalblackpants.png",
+            "description": "Description",
+            "size": "M",
+            "quantity": 2
+          },
+          {
+            "id": 16,
+            "name": "Brown Heels",
+            "gender": "womens",
+            "category": "shoes",
+            "price": 140,
+            "colour": "brown",
+            "image": "../photos/womenbrownheels.png",
+            "description": "Step into fashion with these elegant brwn high heels.",
+            "size": "XL",
+            "quantity": 3
+          }
+        ],
+        "total": 2960.6
+      },
+      {
         "id": 1776377599240,
         "date": "2026-04-16T22:13:19.240Z",
         "items": [
@@ -351,10 +608,218 @@
     ]
   },
   {
-    "email": "asdf@asdf.com",
-    "password": "asdfasdf",
+    "email": "john6@example.com",
+    "password": "password",
+    "type": "user",
+    "cart": [
+      {
+        "id": 1,
+        "name": "Blue Plaid Suit",
+        "gender": "mens",
+        "category": "jackets",
+        "price": 200,
+        "colour": "blue",
+        "image": "../photos/menplaidsuitbg.png",
+        "description": "Elevate your character with this unique, yet modern blue suit covered in a stylish plaid pattern. ",
+        "size": "XL",
+        "quantity": 1
+      }
+    ],
+    "orders": [
+      {
+        "id": 1776455791449,
+        "date": "2026-04-17T19:56:31.449Z",
+        "items": [
+          {
+            "id": 1,
+            "name": "Blue Plaid Suit",
+            "gender": "mens",
+            "category": "jackets",
+            "price": 200,
+            "colour": "blue",
+            "image": "../photos/menplaidsuitbg.png",
+            "description": "Elevate your character with this unique, yet modern blue suit covered in a stylish plaid pattern. ",
+            "size": "L",
+            "quantity": 10
+          }
+        ],
+        "total": 2260
+      }
+    ]
+  },
+  {
+    "email": "john7@example.com",
+    "password": "password7",
     "type": "user",
     "cart": [],
+    "orders": [
+      {
+        "id": 1776456181539,
+        "date": "2026-04-17T20:03:01.539Z",
+        "items": [
+          {
+            "id": 1,
+            "name": "Blue Plaid Suit",
+            "gender": "mens",
+            "category": "jackets",
+            "price": 200,
+            "colour": "blue",
+            "image": "../photos/menplaidsuitbg.png",
+            "description": "Elevate your character with this unique, yet modern blue suit covered in a stylish plaid pattern. ",
+            "size": "L",
+            "quantity": 16
+          },
+          {
+            "id": 4,
+            "name": "Classic Formal Black Pants",
+            "gender": "mens",
+            "category": "pants",
+            "price": 80,
+            "colour": "black",
+            "image": "../photos/menclassicformalblackpants.png",
+            "description": "Description",
+            "size": "L",
+            "quantity": 9
+          },
+          {
+            "id": 13,
+            "name": "Blue Striped Shirt",
+            "gender": "mens",
+            "category": "shirts",
+            "price": 110,
+            "colour": "blue",
+            "image": "../photos/menbluestripedshirt.png",
+            "description": "Elegant striped pattern. Crafted fromm 100% wool for a premium feeling and durability.",
+            "size": "M",
+            "quantity": 1
+          }
+        ],
+        "total": 4553.9
+      }
+    ]
+  },
+  {
+    "email": "john8@example.com",
+    "password": "password8",
+    "type": "user",
+    "cart": [
+      {
+        "id": 13,
+        "name": "Blue Striped Shirt",
+        "gender": "mens",
+        "category": "shirts",
+        "price": 110,
+        "colour": "blue",
+        "image": "../photos/menbluestripedshirt.png",
+        "description": "Elegant striped pattern. Crafted fromm 100% wool for a premium feeling and durability.",
+        "size": "L",
+        "quantity": 19
+      }
+    ],
     "orders": []
+  },
+  {
+    "email": "john10@example.com",
+    "password": "password",
+    "type": "user",
+    "cart": [],
+    "orders": [
+      {
+        "id": 1776456945305,
+        "date": "2026-04-17T20:15:45.305Z",
+        "items": [
+          {
+            "id": 8,
+            "name": "Cashmere Jacket",
+            "gender": "mens",
+            "category": "jackets",
+            "price": 350,
+            "colour": "brown",
+            "image": "../photos/menbrowncashmerejacket.png",
+            "description": "This jacket is crafted from 100% cashmere to provide comfort, shine, and a sleek feel.",
+            "size": "L",
+            "quantity": 17
+          },
+          {
+            "id": 8,
+            "name": "Cashmere Jacket",
+            "gender": "mens",
+            "category": "jackets",
+            "price": 350,
+            "colour": "brown",
+            "image": "../photos/menbrowncashmerejacket.png",
+            "description": "This jacket is crafted from 100% cashmere to provide comfort, shine, and a sleek feel.",
+            "size": "M",
+            "quantity": 5
+          }
+        ],
+        "total": 8701
+      }
+    ]
+  },
+  {
+    "email": "john11@example.com",
+    "password": "password",
+    "type": "user",
+    "cart": [],
+    "orders": [
+      {
+        "id": 1776457158434,
+        "date": "2026-04-17T20:19:18.434Z",
+        "items": [
+          {
+            "id": 12,
+            "name": "Leather Jacket",
+            "gender": "mens",
+            "category": "jackets",
+            "price": 350,
+            "colour": "black",
+            "image": "../photos/menblackleatherjacket.png",
+            "description": "This jacket is made from real premium leather for a sleek rigid look.",
+            "size": "L",
+            "quantity": 12
+          },
+          {
+            "id": 5,
+            "name": "Black Leather Shoes",
+            "gender": "mens",
+            "category": "shoes",
+            "price": 140,
+            "colour": "black",
+            "image": "../photos/menblackdressshoes.png",
+            "description": "Description",
+            "size": "M",
+            "quantity": 1
+          },
+          {
+            "id": 5,
+            "name": "Black Leather Shoes",
+            "gender": "mens",
+            "category": "shoes",
+            "price": 140,
+            "colour": "black",
+            "image": "../photos/menblackdressshoes.png",
+            "description": "Description",
+            "size": "L",
+            "quantity": 2
+          }
+        ],
+        "total": 5220.6
+      }
+    ],
+    "favourites": [
+      {
+        "id": 12,
+        "name": "Leather Jacket",
+        "gender": "mens",
+        "category": "jackets",
+        "price": 350,
+        "colour": "black",
+        "image": "../photos/menblackleatherjacket.png",
+        "description": "This jacket is made from real premium leather for a sleek rigid look.",
+        "size": "L",
+        "quantity": 1
+      }
+    ]
   }
 ]

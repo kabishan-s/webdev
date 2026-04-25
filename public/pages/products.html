@@ -13,9 +13,19 @@
   <link rel="stylesheet" href="../css/products.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 
-
+  <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+  <script>
+    $(document).ready(function () {
+        $(".navbar-burger").click(function () {
+            $(".navbar-burger").toggleClass("is-active");
+            $(".navbar-menu").toggleClass("is-active");
+        });
+    });
+  </script>
+
 </head>
 
 <body>
@@ -101,8 +111,7 @@
               <div @click="setFilter('colour','black')" :class="{active: filters.colour === 'black'}">Black</div>
               <div @click="setFilter('colour','white')" :class="{active: filters.colour === 'white'}">White</div>
               <div @click="setFilter('colour','blue')" :class="{active: filters.colour === 'blue'}">Blue</div>
-              <div @click="setFilter('colour','beige')" :class="{active: filters.colour === 'beige'}">Beige</div>
-              <div @click="setFilter('colour','pink')" :class="{active: filters.colour === 'pink'}">Pink</div>
+              <div @click="setFilter('colour','brown')" :class="{active: filters.colour === 'brown'}">Brown</div>
             </div>
           </div>
 
@@ -120,14 +129,14 @@
           <div class="filter-group">
             <div class="filter-title" @click="toggle('ratingFilterOpen')">Rating</div>
             <div class="filter-options" v-show="ratingFilterOpen">
-              <div @click="setFilter('rating',0)"  :class="{active: filters.rating === 0}">All</div>
-              <div @click="setFilter('rating',2)" :class="{active: filters.rating === 2}">★☆☆☆☆+</div>
-              <div @click="setFilter('rating',4)" :class="{active: filters.rating === 4}">★★☆☆☆+</div>
-              <div @click="setFilter('rating',6)" :class="{active: filters.rating === 6}">★★★☆☆+</div>
-              <div @click="setFilter('rating',8)" :class="{active: filters.rating === 8}">★★★★☆+</div>
+              <div @click="setFilter('rating','')" :class="{active: filters.rating === ''}">All</div>
+              <div @click="setFilter('rating',5)" :class="{active: filters.rating === 5}">★★★★★</div>
+              <div @click="setFilter('rating',4)" :class="{active: filters.rating === 4}">★★★★☆</div>
+              <div @click="setFilter('rating',3)" :class="{active: filters.rating === 3}">★★★☆☆</div>
+              <div @click="setFilter('rating',2)" :class="{active: filters.rating === 2}">★★☆☆☆</div>
+              <div @click="setFilter('rating',1)" :class="{active: filters.rating === 1}">★☆☆☆☆</div>
             </div>
           </div>
-
           <div class="filter-group">
             <div class="filter-title" @click="toggle('favouriteFilterOpen')">Favourited</div>
             <div class="filter-options" v-show="favouriteFilterOpen">
@@ -146,7 +155,14 @@
                 <img :src="p.image">
                 <h5>{{p.name}}</h5>
                 <p>${{p.price}}</p>
-                <p>{{p.ratingText}}</p>
+                <div class="rating">
+                  <span>
+                    {{loadStars(getProductRating(p))}}
+                  </span>
+                  <small>
+                    ({{p.ratings?.count || 0 }})
+                  </small>
+                </div>
               </a>
             </div>
           </div>
@@ -155,7 +171,6 @@
     </div>
   </div>
 
-  <script src="../js/common.js"></script>
   <script src="../js/products.js"></script>
 
 </body>

@@ -5,11 +5,12 @@ createApp({
     const user = JSON.parse(localStorage.getItem("user"));
     return {
       user: user,
-      cart: user.cart || []
+      cart: user?.cart || []
     }
   },
 
   computed:{
+    // Changes quantity and calculates total costs
     subtotal(){
       return this.cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
     },
@@ -30,6 +31,7 @@ createApp({
         this.cart[index].quantity = newQuantity;
       }
       
+      // Saves cart items for each user account
       this.user.cart = this.cart;
       localStorage.setItem("user", JSON.stringify(this.user));
       

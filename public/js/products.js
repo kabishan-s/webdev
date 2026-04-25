@@ -9,20 +9,21 @@ createApp({
         category: '',
         price: '',
         colour: '',
-        rating: 0,
-        favourite: false,
+        rating: '',
         search: '',
+        favourite: false
       },
       genderFilterOpen: false,
       categoryFilterOpen: false,
       priceFilterOpen: false,
       colourFilterOpen: false,
       ratingFilterOpen: false,
-      favouriteFilterOpen: false,
+      favouriteFilterOpen: false
     }
   },
 
   computed:{
+    // Product filter
     filteredProducts(){
       return this.products.filter(product =>{
         if(this.filters.gender && product.gender !== this.filters.gender){
@@ -48,20 +49,25 @@ createApp({
             return false;
           }
         }
-        if (this.filters.rating !== 0 && (!('rating' in product) || product.rating < this.filters.rating)) {
+        if(this.filters.rating){
+          const avg = product.ratings?.count ? product.ratings.totalRating / product.ratings.count : 0;
+          const floor = Math.floor(avg);
+          const ceil = Math.ceil(avg);
+          const closest = (avg - floor <= ceil - avg) ? floor : ceil;
+          if (closest !== this.filters.rating) {
+            return false;
+          }
+        }
+        if(!(product.name.toLowerCase().includes(this.filters.search.toLowerCase()))){
           return false;
         }
-        if(this.filters.favourite === true && !product.isFavourite) {
+        if(this.filters.favourite === true && !product.isFavourite){
           return false;
         }
-
-        if (!(product.name.toLowerCase().includes(this.filters.search.toLowerCase()))) {
-          return false;
-        }
-
         return true;
       })
     },
+      // Product filter display text
     filterText(){
       let text = [];
 
@@ -81,8 +87,14 @@ createApp({
       if(this.filters.price){
         text.push("$" + this.filters.price);
       }
+      if(this.filters.rating){
+        text.push(`${this.filters.rating}★`);
+      }
 
-      if (this.filters.search !== "") {
+      if(this.filters.favourite){
+        text.push("Favourited");
+      }
+      if(this.filters.search !== ""){
         text.push(`"${this.filters.search}"`);
       }
 
@@ -100,9 +112,22 @@ createApp({
     },
     setFilter(type, value){
       this.filters[type] = value;
+    },
+    // For getting and displaying star ratings
+    getProductRating(product){
+      if(!product.ratings || !product.ratings.count){
+        return 0;
+      }
+      return product.ratings.totalRating / product.ratings.count;
+    },
+    loadStars(avgStars){
+      const fullStars = Math.floor(avgStars);
+      const emptyStars = 5 - fullStars;
+      return "★".repeat(fullStars) + "☆".repeat(emptyStars);
     }
   },
 
+  // Product filter by URL
   async mounted(){
     const params = new URLSearchParams(window.location.search)
     if(params.get('gender')){
@@ -113,16 +138,20 @@ createApp({
       this.filters.category = params.get('category');
       this.categoryFilterOpen = true;
     }
+    if(params.get('colour')){
+      this.filters.colour = params.get('colour');
+      this.colourFilterOpen = true;
+    }
     if(params.get('price')){
       this.filters.price = params.get('price');
       this.priceFilterOpen = true;
     }
-    const load = await fetch('/api/products');
-    this.products = await load.json();
-    for (let i = 0; i < this.products.length; ++i) {
-      this.products[i].foo = 12;
-      this.products[i].ratingText = getRatingFromProduct(this.products[i], true);
+    if(params.get('rating')){
+      this.filters.rating = params.get('rating');
+      this.ratingFilterOpen = true;
     }
+    const load = await fetch('/api/products')
+    this.products = await load.json()
 
     let user = JSON.parse(localStorage.getItem("user"));
     let favourites = user.favourites || [];
@@ -130,5 +159,6 @@ createApp({
       const isFavourite = favourites.some(j => j.id == this.products[i].id);
       this.products[i].isFavourite = isFavourite;
     }
+
   }
 }).mount('#app')

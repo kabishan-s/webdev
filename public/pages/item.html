@@ -16,9 +16,17 @@
 
     <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
     
-    <script src="../js/common.js"></script>
     <script src="../js/item.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+    <script>
+      $(document).ready(function () {
+          $(".navbar-burger").click(function () {
+              $(".navbar-burger").toggleClass("is-active");
+              $(".navbar-menu").toggleClass("is-active");
+          });
+      });
+    </script>
   </head>
 
   <body>
@@ -78,7 +86,25 @@
             <div class="product-info">
               <h1 id="product-name"></h1>
               <p id="product-price" class="price"></p>
-              <p id="product-rating"></p>
+              
+              <div id="rating-section" style="margin-top: 10px; cursor:pointer;">
+                <span id="stars-display"></span>
+                <span id="rating-count"></span>
+              </div>
+              <div class="modal" id="rating-modal">
+                <div class="modal-background"></div>
+                <div class="modal-content">
+                  <div class="box has-text-centered">
+                    <h3 class="title is-5 ">Leave A Rating</h3>
+                    <div id="star-input" style="font-size: 32px; cursor: pointer;"></div>
+                    <br>
+                    <button class="button is-primary" id="save-rating">Save</button>
+                    <button class="button is-light" id="cancel-rating">Cancel</button>
+                    <button class="button is-danger is-light" id="remove-rating">Remove Rating</button>
+                  </div>
+                </div>
+                <button class="modal-close is-large" aria-label="close"></button>
+              </div>
               <div class="sizes" id="sizes"></div>
               <button class="add-to-cart">Add To Cart</button>
               <button class="fav">Favourite</button>

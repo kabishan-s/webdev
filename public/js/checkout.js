@@ -10,6 +10,7 @@ async function loadCart(){
 
   let subtotal = 0;
 
+  // Displays items being purchased and their details
   cart.forEach(function (item){
     let itemTotal = item.price * item.quantity;
     subtotal += itemTotal;
@@ -35,6 +36,7 @@ async function loadCart(){
   document.getElementById("total").textContent = total.toFixed(2);
 }
 
+// Input fields for purchasing details
 document.getElementById("card-number").addEventListener("input", function (e) {
   let val = e.target.value.replace(/\D/g, "").slice(0, 16);
   e.target.value = val.match(/.{1,4}/g)?.join(" ") || val;
@@ -118,6 +120,7 @@ document.getElementById("pay-btn").addEventListener("click", async function () {
     valid = false;
   }
 
+  // Saves orders
   if(valid){
     await fetch('/api/orders/create', {
       method: 'POST',

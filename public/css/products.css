@@ -94,6 +94,7 @@ a, .product, .filters, .filter-options div {
 
 
 
+
 .filter-group{
     margin-bottom: 15px;
 }
@@ -119,8 +120,6 @@ a, .product, .filters, .filter-options div {
     cursor: pointer;
     padding: 4px 0;
     font-weight: normal;
-    /* font-size: 15px; */
-    /* color: rgb(22, 22, 22); */
 
 }
 
@@ -128,6 +127,8 @@ a, .product, .filters, .filter-options div {
 .filter-options div.active{
     font-weight: bold;
 }
+
+
 
 .search-bar {
     width: 100%;
